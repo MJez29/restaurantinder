@@ -1,0 +1,17 @@
+{
+  "name": "restaurantinder",
+  "version": "1.0.0",
+  "description": "Makes finding a new restaurant a little easier",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "Food"
+  ],
+  "author": "Michal Jez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
