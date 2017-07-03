@@ -12,6 +12,10 @@
   "author": "Michal Jez",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.3"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "request": "^2.81.0",
+    "yelp-fusion": "^1.0.3"
   }
 }
