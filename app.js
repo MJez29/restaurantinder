@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 const yelpID = "IvsWcM41GPOQVYfNss_7Mg";
 const yelpSecret = "JT1E6PJAya8CQQz2akRD8tEgagnTjmjlthiQFPqHlI3AlNBsmE2fTFcovlSSX8cP";
 let yelpClient;
-
+/*
 yelp.accessToken(yelpID, yelpSecret).then((res) => {
     yelpClient = yelp.client(res.jsonBody.access_token);
 
@@ -36,24 +36,60 @@ yelp.accessToken(yelpID, yelpSecret).then((res) => {
 }).catch((err) => {
     console.log(err);
 });
-
-app.get("/", (err, req, res, next) => {
-    if (err)
-        return console.log(err);
-
-    res.render("home");
+*/
+app.get("/", (req, res, next) => {
+    res.render("home", {layout: false});
 })
 
 //Called by webpages, responds with a webpage
-app.get("/go", (err, req, res, next) => {
-
+app.get("/go", (req, res, next) => {
+    res.render("go");
 });
 
-//Called to give location and begin suggestions
-app.post("/go", (err, req, res, next) => {
+//Called to give location
+app.post("/go", (req, res, next) => {
+    let key = se.createSuggestion(req.body.lat, req.body.lng);
 
+    res.redirect(`/go/${key}`);
 });
 
-// app.listen(process.env.PORT || 3000, () => {
-//     console.log("Listening on port 3000");
-// })
+//The main app begins
+app.get("/go/:key", (req, res, next) => {
+    res.render("restaurantinder");
+});
+
+//Gets the initial suggestion
+app.post("go/:key", (req, res, next) => {
+    let sugg = se.getSuggestion(req.params.key).suggest(req, res, next);
+
+    //If valid suggestion
+    if (sugg) {
+        res.send(sugg);
+    }
+});
+
+app.put("go/:key", (req, res, next) => {
+    let s = se.getActiveSuggestion(req.params.key);
+
+    //If the suggestion is active
+    if (s) {
+        s.update(req, res, next);
+        s.suggest(req, res, next);
+    }
+    
+    else {
+        s = se.getInactiveSuggestion(req.params.key);
+
+        //If the suggestion is inactive
+        if (s) {
+            //TODO: Do something with the inactive suggestion
+        }
+        else {
+            res.send("Key is not valid. It's possible that it has expired or you made a typo");
+        }
+    }
+})
+
+app.listen(3000, () => {
+    console.log("Listening on port 3000");
+});

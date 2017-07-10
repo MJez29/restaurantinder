@@ -29,9 +29,24 @@ module.exports.createSuggestion = (lat, lng) => {
     }
 
     let actSugg = new ActiveSuggestion(key, lat, lng);
-
+    console.log(actSugg);
     //Adds a new suggestion to the list of active suggestions
     activeSuggestions.set(key, actSugg);
 
     return key;
 }
+
+//Returns a suggestion, can be active or inactive or undefined if doesn't exist
+module.exports.getSuggestion = (key) => {
+    return getActiveSuggestion(key) || getInactiveSuggestion(key);
+};
+
+//Returns an active suggestion or undefined if doesn't exist
+module.exports.getActiveSuggestion = (key) => {
+    return activeSuggestions.get(key);
+};
+
+//Returns an inactive suggestion or undefined if doesn't exist
+module.exports.getInactiveSuggestion = (key) => {
+    return inactiveSuggestions.get(key);
+};
