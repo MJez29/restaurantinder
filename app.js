@@ -37,28 +37,31 @@ yelp.accessToken(yelpID, yelpSecret).then((res) => {
     console.log(err);
 });
 */
-app.get("/", (req, res, next) => {
-    res.render("home", {layout: false});
-})
+// app.get("/", (req, res, next) => {
+//     res.render("home", {layout: false});
+// })
 
 //Called by webpages, responds with a webpage
-app.get("/go", (req, res, next) => {
-    res.render("go");
-});
+// app.get("/go", (req, res, next) => {
+//     res.render("go");
+// });
 
 //Called to give location
 app.post("/go", (req, res, next) => {
     let key = se.createSuggestion(req.body.lat, req.body.lng);
 
-    res.redirect(`/go/${key}`);
+    //res.redirect(`/go/${key}`);
+    res.send(json.stringify(key));
 });
 
 //The main app begins
-app.get("/go/:key", (req, res, next) => {
-    res.render("restaurantinder");
-});
+// app.get("/go/:key", (req, res, next) => {
+//     res.render("restaurantinder");
+// });
 
 //Gets the initial suggestion
+//Makes firstYelp  API call
+//5 minute timer begins
 app.post("go/:key", (req, res, next) => {
     let sugg = se.getSuggestion(req.params.key).suggest(req, res, next);
 
@@ -90,6 +93,6 @@ app.put("go/:key", (req, res, next) => {
     }
 })
 
-app.listen(3000, () => {
+app.listen(4200, () => {
     console.log("Listening on port 3000");
 });
