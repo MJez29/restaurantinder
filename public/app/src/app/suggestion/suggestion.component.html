@@ -1,0 +1,10 @@
+<div *ngIf="loading">
+	<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+	<span class="sr-only">Loading...</span>
+</div>
+
+<div *ngIf="!loading">
+	<h1>{{restaurant.getName()}}</h1>
+	<img [src]="restaurant.getImageUrl()" alt="A picture of the restaurant">
+	
+</div>

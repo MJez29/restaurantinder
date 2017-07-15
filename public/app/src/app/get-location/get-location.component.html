@@ -1,0 +1,13 @@
+<h1>Where Do You Want To Search?</h1>
+<h2>{{ time }}</h2>
+<form>
+	<input (click)="getGeolocation();" type="button" value="My Location" #locSub>
+	<hr>
+	<input type="text" placeholder="Latitude" #lat>
+	<input type="text" placeholder="Longitude" #lng>
+	<input type="button" #latLngSub>
+	<hr>
+	<input type="text" placeholder="Address Line 1" #addr1>
+	<input type="text" placeholder="Address Line 2" #addr2>
+	<input type="button" #addrSub>
+</form>
