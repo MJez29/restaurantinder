@@ -46,6 +46,24 @@ export class Restaurant {
 
 	private transactions: string[];
 
+	constructor(data) {
+		this.categories = data.categories;
+		this.coordinates = data.coordinates;
+		this.display_phone = data.display_phone;
+		this.distance = data.distance;
+		this.id = data.id;
+		this.image_url = data.image_url;
+		this.is_closed = data.is_closed;
+		this.location = data.location;
+		this.name = data.name;
+		this.phone = data.phone;
+		this.price = data.price;
+		this.rating = data.rating;
+		this.review_count = data.review_count;
+		this.transactions = data.transactions;
+		this.url = data.url;
+	}
+
 	//Getters
 
 	public getName() {

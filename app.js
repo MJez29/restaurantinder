@@ -3,6 +3,7 @@ let exphbs = require("express-handlebars");
 let yelp = require("yelp-fusion");
 let se = require("./models/suggestion-engine");
 let bodyParser = require("body-parser");
+let path = require("path");
 
 let app = express();
 
@@ -37,9 +38,9 @@ yelp.accessToken(yelpID, yelpSecret).then((res) => {
     console.log(err);
 });
 */
-// app.get("/", (req, res, next) => {
-//     res.render("home", {layout: false});
-// })
+app.get("/", (req, res, next) => {
+    res.sendFile(path.join(__dirname, "public", "app", "dist", "index.html"));
+})
 
 //Called by webpages, responds with a webpage
 // app.get("/go", (req, res, next) => {
@@ -51,13 +52,19 @@ app.post("/go", (req, res, next) => {
     let key = se.createSuggestion(req.body.lat, req.body.lng);
 
     //res.redirect(`/go/${key}`);
-    res.send(json.stringify(key));
+    console.log(key);
+    res.send(JSON.stringify( {key : key} ));
 });
 
-//The main app begins
-// app.get("/go/:key", (req, res, next) => {
-//     res.render("restaurantinder");
-// });
+
+app.get("/go/:key", (req, res, next) => {
+    let sugg = se.getSuggestion(req.params.key).suggest(req, res, next);
+
+    //If valid suggestion
+    if (sugg) {
+        res.send(sugg);
+    }
+});
 
 //Gets the initial suggestion
 //Makes firstYelp  API call
@@ -93,6 +100,6 @@ app.put("go/:key", (req, res, next) => {
     }
 })
 
-app.listen(4200, () => {
+app.listen(3000, () => {
     console.log("Listening on port 3000");
 });

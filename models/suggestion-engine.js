@@ -38,15 +38,20 @@ module.exports.createSuggestion = (lat, lng) => {
 
 //Returns a suggestion, can be active or inactive or undefined if doesn't exist
 module.exports.getSuggestion = (key) => {
+    key = parseInt(key);
     return getActiveSuggestion(key) || getInactiveSuggestion(key);
 };
 
 //Returns an active suggestion or undefined if doesn't exist
-module.exports.getActiveSuggestion = (key) => {
+getActiveSuggestion = (key) => {
     return activeSuggestions.get(key);
 };
 
+module.exports.getActiveSuggestion = getActiveSuggestion;
+
 //Returns an inactive suggestion or undefined if doesn't exist
-module.exports.getInactiveSuggestion = (key) => {
+getInactiveSuggestion = (key) => {
     return inactiveSuggestions.get(key);
 };
+
+module.exports.getInactiveSuggestion = getInactiveSuggestion;

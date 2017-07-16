@@ -113,17 +113,17 @@ module.exports = class {
 
     //Adds a price that the user likes
     addGoodPricePref(price) {
-        prices.addGoodPref(price);
+        this.prices.addGoodPref(price);
     }
 
     //Adds a price the the user is neutral about
     addNeutralPricePref(price) {
-        prices.addNeutralPref(price);
+        this.prices.addNeutralPref(price);
     }
 
     //Adds a price that the user doesn't like
     addBadPricePref(price) {
-        prices.addBadPref(price);
+        this.prices.addBadPref(price);
     }
 
     //Returns a suggestion in the form of a Yelp Business object
@@ -164,28 +164,30 @@ module.exports = class {
     suggest(req, res, next) {
 
         //If the engine hasn't suggested anything yet
-        if (numSuggestions++ == 0) {
+        if (this.numSuggestions++ == 0) {
 
             //Gets a list of suggestions from yelp
             yelpClient.search({
-                latitude: lat,
-                longitude: lng,
+                latitude: this.lat,
+                longitude: this.lng,
                 categories: "restaurants",
                 distance: 25000,
                 open_now: true,
                 limit: 10
             }).then((results) => {
+                this.results = results.jsonBody;
+                console.log(this.results);
                 //Returns the first suggestion
-                res.json(results.businesses[0]);
+                res.json(this.results.businesses[0]);
             }).catch((err) => {
                 console.log(err);
             })
         }
         //If less than 10 suggestions have been made
-        else if (numSuggestions < 10) {
+        else if (this.numSuggestions < 10) {
             //Suggests another restaurant randomly
             //10 restaurants should provide enough feedback to generate an accurate picture of what the user wants
-            res.json(results.businesses[numSuggestions++]);
+            res.json(results.businesses[this.numSuggestions++]);
         }
         //TODO: 2nd yelp query
     }
