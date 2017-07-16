@@ -77,4 +77,12 @@ export class Restaurant {
 	public getPrice() {
 		return this.price;
 	}
+
+	public getCategories() {
+		return this.categories;
+	}
+
+	public getDistance() {
+		return this.distance;
+	}
 }

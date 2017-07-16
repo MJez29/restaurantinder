@@ -8,12 +8,14 @@ import { GetLocationComponent } from './get-location/get-location.component';
 import { SuggestionComponent } from "./suggestion/suggestion.component"
 
 import { RestaurantService } from "./restaurant.service";
+import { RoundPipe } from './round.pipe';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		GetLocationComponent,
-		SuggestionComponent
+		SuggestionComponent,
+		RoundPipe
 	],
 	imports: [
 		BrowserModule,
