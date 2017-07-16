@@ -28,19 +28,39 @@ export class RestaurantService {
 	}
 
 	//Sets the location of the user
-	setLocation(lat: number, lng: number, success: () => void, error: (err) => void) {
-		this.lat = lat;
-		this.lng = lng;
-		this.http.post(POST_LOCATION_URL, { lat: this.lat, lng: this.lng }/*, REQUEST_OPTIONS*/)
-			.map(this.extractData)
-			.subscribe((data) => {
-				console.log("DATA FROM GET REQUEST:\n" + JSON.stringify(data, null, 4));
-				this.key = data.key;
-				success();
-			}, (err) => {
-				console.log(err);
-				error(err);
-			});
+	// if (options.useLatLng)
+		// options: {
+		// 	useLatLng: boolean,
+		// 	lat: number,
+		// 	lng: number
+		// }
+	// else
+		// options: {
+		// 	useLatLng: boolean,
+		// 	addr1: string,
+		// 	addr2: string,
+		// 	addr3: string (optional)
+		// }
+	setLocation(success: () => void, error: (err) => void, options: { useLatLng: boolean, lat: number, lng: number, addr1: string, addr2: string, addr3: string }) {
+		//Checks to make sure that all required parameters are present
+		console.log(options);
+		if ((options.useLatLng && options.lat && options.lng) || (!options.useLatLng && options.addr1 && options.addr2)) {
+			this.http.post(POST_LOCATION_URL, options/*, REQUEST_OPTIONS*/)
+				.map(this.extractData)
+				.subscribe((data) => {
+					console.log("DATA FROM GET REQUEST:\n" + JSON.stringify(data, null, 4));
+					if (data.key != -1) {
+						this.key = data.key;
+						success();
+					}
+					else {
+						error("");
+					}
+				}, (err) => {
+					console.log(err);
+					error(err);
+				});
+		}
 	}
 
 	getCurrentRestaurant(): Restaurant {

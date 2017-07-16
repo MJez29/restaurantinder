@@ -1,13 +1,23 @@
 <h1>Where Do You Want To Search?</h1>
 <h2>{{ time }}</h2>
 <form>
-	<input (click)="getGeolocation();" type="button" value="My Location" #locSub>
+	<input *ngIf="!geolocationError" (click)="getGeolocation();" type="button" value="My Location" #locSub>
+	<p *ngIf="geolocationErr">
+		Your position could not be determined. Please enter your position manually.
+	</p>
 	<hr>
 	<input type="text" placeholder="Latitude" #lat>
 	<input type="text" placeholder="Longitude" #lng>
-	<input type="button" #latLngSub>
+	<input (click)="submitLatLng(lat, lng)" type="button" value="Go">
+	<p *ngIf="latLngErr">
+		Invalid position. Latitude must be between -90 and 90. Longitude must be between -180 and 180.
+	</p>
 	<hr>
 	<input type="text" placeholder="Address Line 1" #addr1>
 	<input type="text" placeholder="Address Line 2" #addr2>
-	<input type="button" #addrSub>
+	<input type="text" placeholder="Address Line 3" #addr3>
+	<input (click)="submitAddr(addr1, addr2, addr3)" type="button" value="Go">
+	<p *ngIf="addrErr">
+		An error occured. Please try a different adress.
+	</p>
 </form>
