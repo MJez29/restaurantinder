@@ -85,4 +85,28 @@ export class Restaurant {
 	public getDistance() {
 		return this.distance;
 	}
+
+	public getRating() {
+		return this.rating;
+	}
+
+	public canMakeReservation() {
+		return "restaurant_reservation" in this.transactions
+	}
+
+	public getPhoneNumber() {
+		return this.phone;
+	}
+
+	public getLat() {
+		return this.coordinates.latitude;
+	}
+
+	public getLng() {
+		return this.coordinates.longitude;
+	}
+
+	public getNumCategories() {
+		return this.categories.length;
+	}
 }

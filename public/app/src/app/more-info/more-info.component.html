@@ -1,0 +1,19 @@
+<div *ngIf="loading">
+	<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+	<span class="sr-only">Loading...</span>
+</div>
+<div *ngIf="!loading">
+	<h1>{{restaurant.getName()}}</h1>
+	<img [src]="restaurant.getImageUrl()" alt="An image of the restaurant">
+	<img src="/img/{{restaurant.getRating()}}.png" alt="">
+	<agm-map [latitude]="(lat + restaurant.getLat()) / 2" [longitude]="(lng + restaurant.getLng()) / 2" [zoom]="12">
+		<agm-marker [latitude]="lat" [longitude]="lng" title="You are here" label="A" [zIndex]="2">
+
+		</agm-marker>
+		<agm-marker [latitude]="restaurant.getLat()" [longitude]="restaurant.getLng()" [title]="restaurant.getName()" label="B" z-index="1">
+
+		</agm-marker>
+	</agm-map>
+	<a *ngIf="restaurant.canMakeReservation()" href="tel:{{restaurant.getPhoneNumber()}}"></a>
+</div>
+<a routerLink="/go/suggest" skipLocationChange>Back</a>

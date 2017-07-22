@@ -1,4 +1,4 @@
-export class Feedback {
+export class Preferences {
     likes: {
         price: string,
         distance: number;

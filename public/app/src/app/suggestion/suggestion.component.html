@@ -8,34 +8,44 @@
 	<img [src]="restaurant.getImageUrl()" alt="A picture of the restaurant">
 	<h2>Categories</h2>
 	<ul>
-		<li *ngFor="let category of restaurant.getCategories()">
-			<button>
+		<li *ngFor="let category of restaurant.getCategories(); let i = index">
+			<button (click)="categoryClick(BAD, i)">
 				<i class="fa fa-times" aria-hidden="true"></i>
 			</button>
 			<span>{{ category.title }}</span>
-			<button>
+			<button (click)="categoryClick(GOOD, i)">
 				<i class="fa fa-check" aria-hidden="true"></i>
 			</button>
 		</li>
 	</ul>
 	<div>
 		<h2>Price</h2>
-		<button>
+		<button (click)="priceClick(BAD)">
 			<i class="fa fa-times" aria-hidden="true"></i>
 		</button>
 		<span>{{ restaurant.getPrice() }}</span>
-		<button>
+		<button (click)="priceClick(GOOD)">
 			<i class="fa fa-check" aria-hidden="true"></i>
 		</button>
 	</div>
 	<div>
 		<h2>Distance</h2>
-		<button>
+		<button (click)="distanceClick(BAD)">
 			<i class="fa fa-times" aria-hidden="true"></i>
 		</button>
 		<span>{{ restaurant.getDistance() / 1000 | round: 1 }} km</span>
-		<button>
+		<button (click)="distanceClick(GOOD)">
 			<i class="fa fa-check" aria-hidden="true"></i>
+		</button>
+	</div>
+	<div>
+		<button (click)="nextSuggestion()">
+			Next
+		</button>
+	</div>
+	<div>
+		<button (click)="moreInfo()">
+			More Info
 		</button>
 	</div>
 </div>

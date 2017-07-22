@@ -10,7 +10,11 @@ yelp.accessToken(yelpID, yelpSecret).then((res) => {
     console.log(err);
 });
 
-const DEFAULT_PRICES = [1, 2, 3, 4];
+const DEFAULT_PRICES = ["$", "$$", "$$$", "$$$$"];
+
+const GOOD = "GOOD";
+const NEUTRAL = "NEUTRAL";
+const BAD = "BAD";
 
 //The amount of time that a suggestion is active for in ms
 const TIME_ACTIVE = 5 * 60 * 1000;
@@ -111,19 +115,49 @@ module.exports = class {
         setTimeout(this.deactivate, TIME_ACTIVE);
     }
 
-    //Adds a price that the user likes
-    addGoodPricePref(price) {
-        this.prices.addGoodPref(price);
+    //Takes feedback from the user and uses it to provide more accurate suggestions
+    //
+    // pref: {
+	// 	price: {
+	// 		value: string,			//"$", "$$", "$$$", "$$$$"
+	// 		pref: string			//"GOOD", "BAD", "NEUTRAL"
+	// 	}, 
+	// 	distance: {
+	// 		value: number,			//The distance in meters
+	// 		pref: string			//"GOOD", "BAD", "NEUTRAL"
+	// 	},
+	// 	categories: {
+	// 		value: string,			//The category title
+	// 		pref: string			//"GOOD", "BAD", "NEUTRAL"
+	// 	}[]
+	// }
+    addPreference(pref) {
+        addPricePref(pref.price);
+        addDistancePref(pref.distance);
+        //TODO: Preferences for categories
     }
 
-    //Adds a price the the user is neutral about
-    addNeutralPricePref(price) {
-        this.prices.addNeutralPref(price);
+    //Adds a price preference
+    // price: {
+    //     value: string,          //"$", "$$", "$$$", "$$$$"
+    //     pref: string            //"GOOD", "BAD", "NEUTRAL"
+    // }
+    addPricePref(price) {
+        switch(price.pref) {
+            case BAD: 
+                this.prices.addBadPref(price.value);
+                break;
+            case NEUTRAL:
+                this.prices.addNeutralPref(price.value);
+                break;
+            case GOOD:
+                this.prices.addGoodPref(price.value);
+                break;
+        }
     }
 
-    //Adds a price that the user doesn't like
-    addBadPricePref(price) {
-        this.prices.addBadPref(price);
+    addDistancePref(dist) {
+        //TODO: Distance preferences
     }
 
     //Returns a suggestion in the form of a Yelp Business object
@@ -187,7 +221,7 @@ module.exports = class {
         else if (this.numSuggestions < 10) {
             //Suggests another restaurant randomly
             //10 restaurants should provide enough feedback to generate an accurate picture of what the user wants
-            res.json(results.businesses[this.numSuggestions++]);
+            res.json(this.results.businesses[this.numSuggestions++]);
         }
         //TODO: 2nd yelp query
     }

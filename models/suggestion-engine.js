@@ -55,3 +55,11 @@ getInactiveSuggestion = (key) => {
 };
 
 module.exports.getInactiveSuggestion = getInactiveSuggestion;
+
+addPreference = (key, pref) => {
+    let sugg = getActiveSuggestion(key);
+
+    if (sugg) {
+        sugg.addPreference(pref);
+    }
+}

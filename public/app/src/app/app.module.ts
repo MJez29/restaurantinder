@@ -9,13 +9,17 @@ import { SuggestionComponent } from "./suggestion/suggestion.component"
 
 import { RestaurantService } from "./restaurant.service";
 import { RoundPipe } from './round.pipe';
+import { MoreInfoComponent } from './more-info/more-info.component';
+
+import { AgmCoreModule } from "@agm/core";
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		GetLocationComponent,
 		SuggestionComponent,
-		RoundPipe
+		RoundPipe,
+		MoreInfoComponent
 	],
 	imports: [
 		BrowserModule,
@@ -34,8 +38,15 @@ import { RoundPipe } from './round.pipe';
 			{
 				path: "go/suggest",
 				component: SuggestionComponent
+			},
+			{
+				path: "go/more-info",
+				component: MoreInfoComponent
 			}
-		])
+		]),
+		AgmCoreModule.forRoot({
+			apiKey: "AIzaSyBk9aL8r8Ss9hRDYI8MTR5u9eRPZRBgpdE"
+		})
 	],
 	providers: [
 		RestaurantService

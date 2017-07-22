@@ -13,5 +13,5 @@ export const enum AppStates {
 })
 
 export class AppComponent {
-
+	
 }

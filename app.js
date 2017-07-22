@@ -45,6 +45,10 @@ app.get("/", (req, res, next) => {
     res.sendFile(path.join(__dirname, "public", "app", "dist", "index.html"));
 })
 
+app.get("/go", (req, res, next) => {
+    res.sendFile(path.join(__dirname, "public", "app", "dist", "index.html"));
+})
+
 //Called by webpages, responds with a webpage
 // app.get("/go", (req, res, next) => {
 //     res.render("go");
@@ -113,38 +117,10 @@ app.get("/go/:key", (req, res, next) => {
     }
 });
 
-//Gets the initial suggestion
-//Makes firstYelp  API call
-//5 minute timer begins
-app.post("go/:key", (req, res, next) => {
-    let sugg = se.getSuggestion(req.params.key).suggest(req, res, next);
-
-    //If valid suggestion
-    if (sugg) {
-        res.send(sugg);
-    }
-});
-
-app.put("go/:key", (req, res, next) => {
-    let s = se.getActiveSuggestion(req.params.key);
-
-    //If the suggestion is active
-    if (s) {
-        s.update(req, res, next);
-        s.suggest(req, res, next);
-    }
-    
-    else {
-        s = se.getInactiveSuggestion(req.params.key);
-
-        //If the suggestion is inactive
-        if (s) {
-            //TODO: Do something with the inactive suggestion
-        }
-        else {
-            res.send("Key is not valid. It's possible that it has expired or you made a typo");
-        }
-    }
+app.post("/go/:key", (req, res, next) => {
+    console.log(JSON.stringify(req.body, null, 4));
+    //TODO: Send next suggestion
+    res.send({ status: "OK" });
 })
 
 app.listen(3000, () => {

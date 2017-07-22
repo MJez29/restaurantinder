@@ -1,7 +1,7 @@
 <h1>Where Do You Want To Search?</h1>
 <h2>{{ time }}</h2>
 <form>
-	<input *ngIf="!geolocationError" (click)="getGeolocation();" type="button" value="My Location" #locSub>
+	<input *ngIf="!geolocationError" (click)="getGeolocation();" type="button" value="My Location">
 	<p *ngIf="geolocationErr">
 		Your position could not be determined. Please enter your position manually.
 	</p>
