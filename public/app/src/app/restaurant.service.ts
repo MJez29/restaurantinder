@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Restaurant } from "./restaurant";
-import { Feedback } from "./feedback";
+import { Preferences } from "./preferences";
 import { Http, Response, Headers, RequestOptions } from "@angular/http";
 
 import { Observable } from 'rxjs/Observable';
@@ -128,7 +128,7 @@ export class RestaurantService {
 			)
 	}
 	
-	getNewRestaurantWithFeedback(fb: Feedback, success: (restaurant: Restaurant) => void, error: (any) => void): void {
+	getNewRestaurantWithFeedback(prefs: Preferences, success: (restaurant: Restaurant) => void, error: (any) => void): void {
 		this.http.get(`192.168.2.5:3000/go/{this.id}`)
 			.map((res: Response) => {
 				return res.json().data || {};

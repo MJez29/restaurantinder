@@ -1,51 +1,60 @@
-<div *ngIf="loading">
+<div *ngIf="loading" class="loading">
 	<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-	<span class="sr-only">Loading...</span>
 </div>
 
-<div *ngIf="!loading">
-	<h1>{{restaurant.getName()}}</h1>
-	<img [src]="restaurant.getImageUrl()" alt="A picture of the restaurant">
-	<h2>Categories</h2>
-	<ul>
-		<li *ngFor="let category of restaurant.getCategories(); let i = index">
-			<button (click)="categoryClick(BAD, i)">
-				<i class="fa fa-times" aria-hidden="true"></i>
+<div *ngIf="!loading" class="pure-g">
+	<div class="pure-u-1-3"></div>
+	<div class="pure-u-1-3 content">
+		<h1>{{restaurant.getName()}}</h1>
+		<img id="restaurant-img" class="pure-img" [src]="restaurant.getImageUrl()" alt="A picture of the restaurant">
+		<div class="category">
+			<h2 class="category-title">Categories</h2>
+			<ul class="pref-list">
+				<li *ngFor="let category of restaurant.getCategories(); let i = index" [ngClass]="['pref', categoryPrefs[i], 'ripple']">
+					<button (click)="categoryClick(BAD, i)" class="pure-button bad">
+						<i class="fa fa-times" aria-hidden="true"></i>
+					</button>
+					<p>{{ category.title }}</p>
+					<button (click)="categoryClick(GOOD, i)" class="pure-button good">
+						<i class="fa fa-check" aria-hidden="true"></i>
+					</button>
+				</li>
+			</ul>
+		</div>
+		<div class="category">
+			<h2 class="category-title">Price</h2>
+			<div [ngClass]="['pref', pricePref, 'ripple']">
+				<button (click)="priceClick(BAD)" class="pure-button bad">
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</button>
+				<p>{{ restaurant.getPrice() }}</p>
+				<button (click)="priceClick(GOOD)" class="pure-button good">
+					<i class="fa fa-check" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+		<div class="category">
+			<h2 class="category-title">Distance</h2>
+			<div [ngClass]="['pref', distancePref, 'ripple']">
+				<button (click)="distanceClick(BAD)" class="pure-button bad">
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</button>
+				<p>{{ restaurant.getDistance() / 1000 | round: 1 }} km</p>
+				<button (click)="distanceClick(GOOD)" class="pure-button good">
+					<i class="fa fa-check" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+		<div>
+			<button (click)="nextSuggestion()" class="pure-button" id="next">
+				Next
 			</button>
-			<span>{{ category.title }}</span>
-			<button (click)="categoryClick(GOOD, i)">
-				<i class="fa fa-check" aria-hidden="true"></i>
+		</div>
+		<div>
+			<button (click)="moreInfo()" class="pure-button" id="more">
+				More Info
 			</button>
-		</li>
-	</ul>
-	<div>
-		<h2>Price</h2>
-		<button (click)="priceClick(BAD)">
-			<i class="fa fa-times" aria-hidden="true"></i>
-		</button>
-		<span>{{ restaurant.getPrice() }}</span>
-		<button (click)="priceClick(GOOD)">
-			<i class="fa fa-check" aria-hidden="true"></i>
-		</button>
+		</div>
 	</div>
-	<div>
-		<h2>Distance</h2>
-		<button (click)="distanceClick(BAD)">
-			<i class="fa fa-times" aria-hidden="true"></i>
-		</button>
-		<span>{{ restaurant.getDistance() / 1000 | round: 1 }} km</span>
-		<button (click)="distanceClick(GOOD)">
-			<i class="fa fa-check" aria-hidden="true"></i>
-		</button>
-	</div>
-	<div>
-		<button (click)="nextSuggestion()">
-			Next
-		</button>
-	</div>
-	<div>
-		<button (click)="moreInfo()">
-			More Info
-		</button>
-	</div>
+	<div class="pure-u-1-3"></div>
 </div>

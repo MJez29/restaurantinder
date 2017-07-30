@@ -12,6 +12,7 @@ import { RoundPipe } from './round.pipe';
 import { MoreInfoComponent } from './more-info/more-info.component';
 
 import { AgmCoreModule } from "@agm/core";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
 	declarations: [
@@ -19,7 +20,8 @@ import { AgmCoreModule } from "@agm/core";
 		GetLocationComponent,
 		SuggestionComponent,
 		RoundPipe,
-		MoreInfoComponent
+		MoreInfoComponent,
+		HomeComponent
 	],
 	imports: [
 		BrowserModule,

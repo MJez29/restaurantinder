@@ -10,7 +10,7 @@ let googleMapsClient = require("@google/maps").createClient({
 
 let app = express();
 
-app.use(express.static("public"));
+app.use(express.static(path.join("public", "app", "dist")));
 
 app.engine("handlebars", exphbs({}));
 app.set("view engine", "handlebars");

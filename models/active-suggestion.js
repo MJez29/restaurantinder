@@ -4,6 +4,8 @@ const yelpID = "IvsWcM41GPOQVYfNss_7Mg";
 const yelpSecret = "JT1E6PJAya8CQQz2akRD8tEgagnTjmjlthiQFPqHlI3AlNBsmE2fTFcovlSSX8cP";
 let yelpClient;
 
+const zomatoID = "7f517335abf7ab2f1dd537019eb5f8a2";
+
 yelp.accessToken(yelpID, yelpSecret).then((res) => {
     yelpClient = yelp.client(res.jsonBody.access_token);
 }).catch((err) => {

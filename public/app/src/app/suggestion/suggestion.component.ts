@@ -4,7 +4,7 @@ import { RestaurantService } from "../restaurant.service";
 import { Router } from "@angular/router";
 
 //After 10s the app moves on to the next suggestion
-const SUGGESTION_DURATION = 10 * 1000;
+const SUGGESTION_DURATION = 10 * 1000;			//TODO: SET THIS BACK TO 10
 
 @Component({
 	selector: 'app-suggestion',
@@ -12,9 +12,9 @@ const SUGGESTION_DURATION = 10 * 1000;
 	styleUrls: ['./suggestion.component.css']
 })
 export class SuggestionComponent implements OnInit {
-	readonly GOOD = "GOOD";
-	readonly NEUTRAL = "NEUTRAL";
-	readonly BAD = "BAD";
+	readonly GOOD = "good";
+	readonly NEUTRAL = "neutral";
+	readonly BAD = "bad";
 
 	public restaurant: Restaurant;
 
@@ -27,10 +27,10 @@ export class SuggestionComponent implements OnInit {
 	private timer;
 
 	constructor(private restaurantService: RestaurantService, private router: Router) { 
-		this.loading = true;
 	}
 
 	ngOnInit() {
+		this.loading = true;
 
 		//Scrolls view back to top
 		window.scrollTo(0, 0);
@@ -45,7 +45,7 @@ export class SuggestionComponent implements OnInit {
 			this.pricePref = this.NEUTRAL;
 			this.distancePref = this.NEUTRAL;
 			this.categoryPrefs = [];
-			let n = res.getNumCategories()
+			let n = res.getNumCategories();
 			for (let i = 0; i < n; i++) {
 				this.categoryPrefs.push(this.NEUTRAL);
 			}

@@ -1,23 +1,31 @@
-<h1>Where Do You Want To Search?</h1>
-<h2>{{ time }}</h2>
-<form>
-	<input *ngIf="!geolocationError" (click)="getGeolocation();" type="button" value="My Location">
-	<p *ngIf="geolocationErr">
-		Your position could not be determined. Please enter your position manually.
-	</p>
-	<hr>
-	<input type="text" placeholder="Latitude" #lat>
-	<input type="text" placeholder="Longitude" #lng>
-	<input (click)="submitLatLng(lat, lng)" type="button" value="Go">
-	<p *ngIf="latLngErr">
-		Invalid position. Latitude must be between -90 and 90. Longitude must be between -180 and 180.
-	</p>
-	<hr>
-	<input type="text" placeholder="Address Line 1" #addr1>
-	<input type="text" placeholder="Address Line 2" #addr2>
-	<input type="text" placeholder="Address Line 3" #addr3>
-	<input (click)="submitAddr(addr1, addr2, addr3)" type="button" value="Go">
-	<p *ngIf="addrErr">
-		An error occured. Please try a different adress.
-	</p>
-</form>
+<div class="content">
+	<h1>Where Do You Want To Search?</h1>
+	<h2>Clicking one of these buttons brings you one step closer to food :)</h2>
+	<form class="pure-form pure-form-stacked">
+		<button *ngIf="!geolocationError" (click)="getGeolocation();" class="pure-button pure-button-primary" type="button">
+			<i class="fa fa-compass" aria-hidden="true"></i> &nbsp; Use my location
+		</button>
+		<p *ngIf="geolocationErr">
+			Your position could not be determined. Please enter your position manually.
+		</p>
+		<hr>
+		<input type="text" placeholder="Latitude" #lat>
+		<input type="text" placeholder="Longitude" #lng>
+		<button (click)="submitLatLng(lat, lng)" value="Go" class="pure-button pure-button-primary" type="button">
+			<i class="fa fa-globe" aria-hidden="true"></i> &nbsp; Use these coordinates
+		</button>
+		<p *ngIf="latLngErr">
+			Invalid position. Latitude must be between -90 and 90. Longitude must be between -180 and 180.
+		</p>
+		<hr>
+		<input type="text" placeholder="Address Line 1" #addr1>
+		<input type="text" placeholder="Address Line 2" #addr2>
+		<input type="text" placeholder="Address Line 3" #addr3>
+		<button (click)="submitAddr(addr1, addr2, addr3)" class="pure-button pure-button-primary" type="button">
+			<i class="fa fa-location-arrow" aria-hidden="true"></i> &nbsp; Use this address
+		</button>
+		<p *ngIf="addrErr">
+			An error occured. Please try a different adress.
+		</p>
+	</form>
+</div>

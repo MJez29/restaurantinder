@@ -1,0 +1,148 @@
+#restaurant-img {
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 0 10px black;
+}
+
+/*
+
+.pref           - A piece of info about a restaurant that the user can like, dislike or be neutral about
+.pref span      - The value of the info
+.pref-list      - A list of preferences within a category
+
+*/
+
+.category {
+    margin: 50px 0;
+    box-shadow: 0 0 10px #000;
+    border-radius: 25px;
+    /*border: 1px solid black;*/
+}
+
+.category-title {
+    font-size: 2em;
+    padding: calc(40px - 1em) 0 0 0;
+    text-align: center;
+    /*border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;*/
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin: 0;
+    height: 80px;
+}
+
+.pref {
+    height: 80px;
+    text-align: center;
+    margin: 0;
+}
+
+.pref p {
+    font-size: 1.5em;
+    text-align: center;
+    width: calc(100% - 160px);
+    margin-top: calc(40px - 0.75em);
+    display: inline-block;
+}
+
+.pref-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pref:last-child {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    /*border-bottom: 1px solid black;*/
+}
+
+.good, .bad, .neutral {
+    transition: background-color cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.25s;
+}
+
+.good {
+    background-color: rgba(0, 173, 0, 0.7);
+}
+
+.neutral {
+    background-color: #FFFFFF;
+}
+
+.bad {
+    background-color: rgba(214, 0, 0, 0.7);
+}
+
+button.good, button.bad {
+    margin: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+button.bad {
+    background-color: #B22222;
+    float: left;
+}
+
+button.good {
+    background-color: #228B22;
+    float: right;
+}
+
+/* 
+
+Ripple effect by mladenplavsic
+https://github.com/mladenplavsic/css-ripple-effect/
+
+*/
+
+.ripple {
+    position:relative;
+    overflow:hidden;
+    transform:translate3d(0,0,0)
+}
+
+.ripple:after {
+    content:"";
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events: none;
+    background-repeat:no-repeat;
+    background-position:50%;
+    transform:scale(10,10);
+    opacity:0;
+    transition: transform .5s, opacity 1s
+}
+
+.ripple:active:after {
+    transform:scale(0,0);
+    opacity: 1;
+    transition: 0s;
+}
+
+.bad:after {
+    background-image:radial-gradient(circle, rgba(214, 0, 0, 1) 10%,transparent 10.01%);
+}
+
+.neutral:after {
+    background-image:radial-gradient(circle, #FFFFFF 10%,transparent 10.01%);
+}
+
+.good:after {
+    background-image:radial-gradient(circle, rgba(0, 173, 0, 1) 10%, transparent 10.01%);
+}
+
+#next {
+    background-color: #F15B00;
+    float: left;
+}
+
+#more {
+     background-color: #F9A602;
+     float: right;
+}
