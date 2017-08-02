@@ -1,3 +1,8 @@
+.content {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 #restaurant-img {
     width: 100%;
     border-radius: 25px;
@@ -137,12 +142,20 @@ https://github.com/mladenplavsic/css-ripple-effect/
     background-image:radial-gradient(circle, rgba(0, 173, 0, 1) 10%, transparent 10.01%);
 }
 
+div.buttons {
+    margin-bottom: 50px;
+}
+
+#next, #more {
+    color: #FFF;
+}
+
 #next {
-    background-color: #F15B00;
-    float: left;
+    background-color: #F9A602;
+    float: right;
 }
 
 #more {
-     background-color: #F9A602;
-     float: right;
+     background-color: #F15B00;
+     float: left;
 }

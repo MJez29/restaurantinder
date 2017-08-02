@@ -30,8 +30,7 @@ import { HomeComponent } from './home/home.component';
 		RouterModule.forRoot([
 			{
 				path: "",
-				redirectTo: "/go",
-				pathMatch: "full"
+				component: HomeComponent
 			},
 			{
 				path: "go",

@@ -1,8 +1,3 @@
-.content {
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
 hr {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -10,4 +5,5 @@ hr {
 
 form button {
     margin-top: 20px;
+    background-color: #F9A602;
 }

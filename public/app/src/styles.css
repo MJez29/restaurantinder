@@ -16,15 +16,14 @@
 }
 
 #logo {
-    height: 3em;
     font-size: initial;
-    padding: 0.5em 10px;
+    /*padding: 0.5em 10px;*/
 }
 
 .content {
     padding: 50px;
     box-shadow: 0 0 10px #000000;
-    margin: 100px 0;
+    box-sizing: border-box;
 }
 
 /*
@@ -38,7 +37,6 @@ nav {
     right: 0;
     left: 0;
     top: 0;
-    height: 4em;
     background-color: #F60025;
     color: #FFF;
     box-shadow: 0 0 10px #000;
@@ -46,10 +44,10 @@ nav {
 }
 
 nav .pure-menu-heading {
-    font-size: 2em;
     padding: 0;
     margin: 0;
     color: #FFF;
+    vertical-align: initial;
 }
 
 nav a.pure-menu-heading:hover {
@@ -67,4 +65,81 @@ Styles pertaining to the footer
     background-color: #F60025;
     padding: 50px 0;
     color: white;
+}
+
+@media screen and (min-width: 0) {
+    nav {
+        height: 4em;
+    }
+
+    nav a.pure-menu-heading {
+        font-size: 1.5em;
+        /*padding: calc((4em - 1.5em) / 4) 10px;*/
+    }
+
+    #logo {
+        height: 3em;
+        padding: calc((4em - 3em) / 2) 10px;
+    }
+
+    .content {
+        margin: 20px 10px;
+    }
+
+    .content:first-child {
+        margin-top: calc(4em + 40px);
+    }
+
+    .content:last-child {
+        margin-bottom: calc(4em + 10px);
+    }
+}
+
+@media screen and (min-width: 35.5em) {
+
+    
+}
+
+@media screen and (min-width: 48em) {
+
+    nav a.pure-menu-heading {
+        font-size: 2em;
+        /*padding: calc((4em - 2em) / 4) 10px;*/
+    }
+
+    .content {
+        margin: 20px 20px;
+    }
+
+    .content:first-child {
+        margin-top: calc(4em + 40px);
+    }
+
+    .content:last-child {
+        margin-bottom: calc(4em + 20px);
+    }
+    
+}
+
+@media screen and (min-width: 64em) {
+
+}
+
+@media screen and (min-width: 80em) {
+    nav a.pure-menu-heading {
+        font-size: 2.5em;
+        /*padding: calc((4em - 3em) / 4) 10px;*/
+    }
+
+    .content {
+        margin: 20px 40px;
+    }
+
+    .content:first-of-class {
+        margin-top: calc(4em + 40px);
+    }
+
+    .content:last-child {
+        margin-bottom: calc(4em + 40px);
+    }
 }
