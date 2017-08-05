@@ -9,9 +9,9 @@ import 'rxjs/add/operator/map';
 
 const REQUEST_OPTIONS = new RequestOptions({ headers: new Headers({ 'Content-Type': 'application/json' }) });
 
-const POST_LOCATION_URL = "http://localhost:3000/go";
-const GET_RESTAURANT_URL = "http://localhost:3000/go/";
-const POST_FEEDBACK_URL = "http://localhost:3000/go/";
+const POST_LOCATION_URL = "http://192.168.2.16:3000/go";//"http://localhost:3000/go";
+const GET_RESTAURANT_URL = "http://192.168.2.16:3000/go/";//"http://localhost:3000/go/";
+const POST_FEEDBACK_URL = "http://192.168.2.16:3000/go/";//"http://localhost:3000/go/";
 
 @Injectable()
 export class RestaurantService {
@@ -112,11 +112,11 @@ export class RestaurantService {
 
 	getFirstRestaurant(success: (restaurant: Restaurant) => void, error: (any) => void): void {
 
-		this.http.post(`192.168.2.5:3000/go`, { lat: this.lat, lng: this.lng }, REQUEST_OPTIONS)
+		this.http.post(`192.168.2.16:3000/go`, { lat: this.lat, lng: this.lng }, REQUEST_OPTIONS)
 			.map(this.extractData)
 			.subscribe(
 				() => {
-					this.http.get(`192.168.2.5:3000/go/{this.id}`)
+					this.http.get(`192.168.2.16:3000/go/{this.id}`)
 						.map((res: Response) => {
 							return res.json() || {};
 						})
@@ -129,7 +129,7 @@ export class RestaurantService {
 	}
 	
 	getNewRestaurantWithFeedback(prefs: Preferences, success: (restaurant: Restaurant) => void, error: (any) => void): void {
-		this.http.get(`192.168.2.5:3000/go/{this.id}`)
+		this.http.get(`192.168.2.16:3000/go/{this.id}`)
 			.map((res: Response) => {
 				return res.json().data || {};
 			})

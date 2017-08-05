@@ -10,5 +10,48 @@
 .pure-button {
     background-color: #F9A602;
     color: #FFF;
-    margin-top: 50px;
+}
+
+#hover-container {
+    margin: 20px 0;
+}
+
+@keyframes hover {
+    25% {
+        -ms-transform: translate(0, 20px); /* IE 9 */
+        -webkit-transform: translate(0, 20px); /* Safari */
+        transform: translate(0, 20px);
+    }
+
+    75% {
+        -ms-transform: translate(0, -20px); /* IE 9 */
+        -webkit-transform: translate(0, -20px); /* Safari */
+        transform: translate(0, -20px);
+    }
+}
+
+#spoon, #plate, #fork {
+    animation-name: hover;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    display: inline-block;
+    text-align: center;
+    
+}
+
+#spoon {
+    width: calc(59 * 9em / 207);
+    margin-left: calc(50% - (59 * 9em / 207 + 9em + 52 * 9em / 207) / 2);
+}
+
+#plate {
+    animation-delay: 0.2s;
+    width: calc(9em);
+}
+
+#fork {
+    animation-delay: 0.4s;
+
+    width: calc(52 * 9em / 207);
 }

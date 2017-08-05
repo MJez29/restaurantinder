@@ -13,6 +13,7 @@ import { MoreInfoComponent } from './more-info/more-info.component';
 
 import { AgmCoreModule } from "@agm/core";
 import { HomeComponent } from './home/home.component';
+import { ConfirmLocationComponent } from './confirm-location/confirm-location.component';
 
 @NgModule({
 	declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
 		SuggestionComponent,
 		RoundPipe,
 		MoreInfoComponent,
-		HomeComponent
+		HomeComponent,
+		ConfirmLocationComponent
 	],
 	imports: [
 		BrowserModule,

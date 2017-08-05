@@ -1,6 +1,8 @@
-.content {
-    margin-left: 0;
-    margin-right: 0;
+@media screen and (min-width: 48em) {
+    .content {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 #restaurant-img {
@@ -44,11 +46,17 @@
 }
 
 .pref p {
-    font-size: 1.5em;
+    font-size: 1em;
     text-align: center;
     width: calc(100% - 160px);
     margin-top: calc(40px - 0.75em);
     display: inline-block;
+}
+
+@media screen and (min-width: 35.5em) {
+    .pref p {
+        font-size: 1.5em;
+    }
 }
 
 .pref-list {

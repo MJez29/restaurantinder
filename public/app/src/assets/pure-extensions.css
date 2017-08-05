@@ -1,0 +1,29 @@
+@media scree and (max-width: 35.5em) {
+    pure-u-0 {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 35.5em) and (max-width: 48em) {
+    pure-u-sm-0 {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 48em) and (max-width: 64em) {
+    pure-u-md-0 {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 64em) and (max-width: 80em) {
+    pure-u-lg-0 {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 80em) {
+    pure-u-xl-0 {
+        display: none;
+    }
+}
