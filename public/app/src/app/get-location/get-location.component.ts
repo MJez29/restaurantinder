@@ -78,17 +78,17 @@ export class GetLocationComponent implements OnInit {
 
 	//Sends the user's location to the RestaurantService and redirects to begin the actual app and show the user a suggestion
 	private startSuggesting(useLatLng) {
-		this.restaurantService.setLocation(() => {
-			this.router.navigateByUrl("/go/suggest", { skipLocationChange: true });
-		}, (err) => {
-			this.addrErr = true;
-		}, {
+		this.restaurantService.setLocation({
 			useLatLng: useLatLng,
 			lat: this.lat,
 			lng: this.lng,
 			addr1: this.addr1,
 			addr2: this.addr2,
 			addr3: this.addr3
-		} );
+		}, () => {
+			this.router.navigateByUrl("/go/suggest", { skipLocationChange: true });
+		}, (err) => {
+			this.addrErr = true;
+		});
 	}
 }

@@ -1,6 +1,10 @@
 <div class="content">
   <h1>Is this correct?</h1>
 
-  <a routerLink="/go" class="pure-button confirm">No</a>
-  <a routerLink="/"></a>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+		<agm-marker [latitude]="lat" [longitude]="lng" title="You are here" label="A"></agm-marker>
+	</agm-map>
+
+  <a routerLink="/go" skipLocationChange class="pure-button confirm" id="no">No</a>
+  <button (click)="locationConfirmed()" class="pure-button confirm" id="yes">Yes</button>
 </div>

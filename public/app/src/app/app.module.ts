@@ -45,6 +45,10 @@ import { ConfirmLocationComponent } from './confirm-location/confirm-location.co
 			{
 				path: "go/more-info",
 				component: MoreInfoComponent
+			},
+			{
+				path: "go/confirm-location",
+				component: ConfirmLocationComponent
 			}
 		]),
 		AgmCoreModule.forRoot({

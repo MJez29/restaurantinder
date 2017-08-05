@@ -57,54 +57,18 @@ app.get("/go", (req, res, next) => {
 //Receives the location of the user
 //Creates an active suggestion and sends back the access key
 // req.body: {
-//     useLatLng: boolean,
 //     lat: number,
-//     lng: number,
-//     addr1: string,
-//     addr2: string,
-//     addr3: number
+//     lng: number
 // }
 app.post("/go", (req, res, next) => {
-    //The user can either provide their position in latitude/longitude or as an address
-    //If provided with lat/lng, the server responds synchronously because the position is in the format that the Yelp API uses
-    //If provided with an address, the server converts the address to lat/lng with the Google Geocoding API asynchronously
-    if (req.body.useLatLng) {
+    console.log("MOO" + req.body);
+    if (req.body.lat && req.body.lng) {
         let key = se.createSuggestion(req.body.lat, req.body.lng);
 
         console.log(key);
         res.send(JSON.stringify( {key : key} ));
     }
-    else {
-        //Google Maps Geocoding API key: AIzaSyBk9aL8r8Ss9hRDYI8MTR5u9eRPZRBgpdE
-        googleMapsClient.geocode({
-            address: `${req.body.addr1}, ${req.body.addr2}, ${req.body.addr3}`
-        }, (err, resp) => {
-            if (err)
-                return console.log(err);
-            
-            console.log(resp.json);
-            if (resp.json.status === "OK") {
-                //Creates a new active suggestion with the location data from the Maps API request
-                let key = se.createSuggestion(resp.json.results[0].geometry.location.lat, resp.json.results[0].geometry.location.lng);
-
-                console.log(key);
-                res.send(JSON.stringify( {key : key} ));
-            }
-            switch(resp.json.status) {
-                case "OK": 
-                    //Creates a new active suggestion with the location data from the Maps API request
-                    let key = se.createSuggestion(resp.json.results[0].geometry.location.lat, resp.json.results[0].geometry.location.lng);
-
-                    console.log(key);
-                    res.send(JSON.stringify( {key : key} ));
-                    break;
-                case "ZERO_RESULTS": 
-                    //A key of -1 indicates 
-                    res.send(JSON.stringify( {key : -1} ));
-                    break;
-            }
-        })
-    }
+    //Google Maps Geocoding API key: AIzaSyBk9aL8r8Ss9hRDYI8MTR5u9eRPZRBgpdE
 });
 
 
@@ -121,6 +85,34 @@ app.post("/go/:key", (req, res, next) => {
     console.log(JSON.stringify(req.body, null, 4));
     //TODO: Send next suggestion
     res.send({ status: "OK" });
+})
+
+// Converts an address into latitude/longitude
+// GET /geocode?addr1=ADDR_1&addr2=ADDR_2&addr3=ADDR_3
+app.get("/geocode", (req, res, next) => {
+    console.log(req.query);
+    if (req.query.addr1) {
+        googleMapsClient.geocode({
+            address: `${req.query.addr1}, ${req.query.addr2}, ${req.query.addr3}`
+        }, (err, resp) => {
+
+            // If something went wrong
+            if (err || resp.json.status !== "OK") {
+                console.log(err);
+                // TODO: Send status
+
+            // If succesful geocode
+            } else {
+                res.json({
+                    //TODO: Send status
+                    lat: resp.json.results[0].geometry.location.lat, 
+                    lng: resp.json.results[0].geometry.location.lng
+                });
+            }
+        });
+    } else {
+
+    }
 })
 
 app.listen(3000, () => {

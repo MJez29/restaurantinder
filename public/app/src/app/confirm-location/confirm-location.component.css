@@ -1,0 +1,12 @@
+agm-map {
+    width: 100%;
+    height: 400px;
+}
+
+#no, #yes {
+    margin-top: 50px;
+}
+
+#yes {
+    margin-left: 50px;
+}
