@@ -2,6 +2,7 @@ let yelp = require("yelp-fusion");
 let PricePreferenceManager = require("./price-preference-manager");
 let DistancePreferenceManager = require("./distance-preference-manager");
 let CategoryPreferenceManager = require("./category-preference-manager");
+let Restaurant = require("./restaurant");
 let fs = require("fs")
 
 const yelpID = "IvsWcM41GPOQVYfNss_7Mg";
@@ -200,8 +201,12 @@ module.exports = class {
                  * @type { Restaurant[] }
                  */
                 this.restaurants = results.jsonBody.businesses;
-                console.log(this.restaurants.length);
-                //Returns the first suggestion
+
+                // Converts the data in Restaurant objects
+                for (let i = 0; i < this.restaurants.length; ++i) {
+                    this.restaurants[i] = new Restaurant(this.restaurants[i]);
+                }
+
                 res.json(this.restaurants[0]);
             }).catch((err) => {
                 console.log(err);

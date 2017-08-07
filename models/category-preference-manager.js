@@ -82,29 +82,31 @@ module.exports = class CategoryPreferenceManager extends FixedValuePreferenceMan
      * @return { number }
      */
     rateAll(categories) {
-        let ratings = [];
-        for (let i = 0; i < categories.length; ++i) {
-            ratings.push(this.rate(categories[i].title));
-        }
-        console.log(categories);
 
         let total = 0;              // The sum of the values in ratings times their weights
         let weightTotal = 0;        // The sum of the weights
 
-        for (let i = 0; i < ratings.length; ++i) {
-            if (ratings[i] < 0) {
+        for (let i = 0; i < categories.length; ++i) {
+
+            // Rates a category
+            let r = this.rate(categories[i].title);
+
+            // Weights it and adds it to the total as well as adding/updating the preference for the category to
+            // the restaurant object
+            if (r < 0) {
                 total += ratings[i] * BAD_WEIGHT;
                 weightTotal += BAD_WEIGHT;
-            } else if (ratings[i] > 0) {
+                categories[i].pref = Preference.BAD;
+            } else if (r > 0) {
                 total += ratings[i] * GOOD_WEIGHT;
                 weightTotal += GOOD_WEIGHT;
+                categories[i].pref = Preference.GOOD;
             } else {
                 total += ratings[i] * NEUTRAL_WEIGHT;
                 weightTotal += NEUTRAL_WEIGHT;
+                categories[i].pref = Preference.NEUTRAL;
             }
         }
-
-        console.log("CAT_PREF: " + total / weightTotal);
 
         return total / weightTotal;
     }
