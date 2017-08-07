@@ -1,4 +1,8 @@
 let yelp = require("yelp-fusion");
+let PricePreferenceManager = require("./price-preference-manager");
+let DistancePreferenceManager = require("./distance-preference-manager");
+let CategoryPreferenceManager = require("./category-preference-manager");
+let fs = require("fs")
 
 const yelpID = "IvsWcM41GPOQVYfNss_7Mg";
 const yelpSecret = "JT1E6PJAya8CQQz2akRD8tEgagnTjmjlthiQFPqHlI3AlNBsmE2fTFcovlSSX8cP";
@@ -21,83 +25,10 @@ const BAD = "BAD";
 //The amount of time that a suggestion is active for in ms
 const TIME_ACTIVE = 5 * 60 * 1000;
 
-class Preference {
-
-    constructor(neutral) {
-        this.good = [];
-        this.neutral = neutral;
-        this.bad = [];
-    }
-
-    //Moves a preference from wherever it was to the good preferences array
-    addGoodPref(pref) {
-        let i;
-
-        //If the preference is not already in the good array
-        if (this.good.indexOf(pref) === -1) {
-            //Adds to the good array
-            this.good.push(pref);
-        }
-
-        //If the preference is in the neutral array
-        if ((i = this.neutral.indexOf(pref)) !== -1) {
-            //Removes it from the neutral array
-            this.neutral.splice(i, 1);
-        }
-
-        //If the preference is in the bad array
-        if ((i = this.bad.indexOf(pref)) !== -1) {
-            //Removes it from the neutral array
-            this.bad.splice(i, 1);
-        }
-    }
-
-    //Moves a preference from wherever it was to the neutral preferences array
-    addNeutralPref(pref) {
-        let i;
-
-        //If the preference is not already in the neutral array
-        if (this.neutral.indexOf(pref) === -1) {
-            //Adds to the neutral array
-            this.neutral.push(pref);
-        }
-
-        //If the preference is in the good array
-        if ((i = this.good.indexOf(pref)) !== -1) {
-            //Removes it from the good array
-            this.good.splice(i, 1);
-        }
-
-        //If the preference is in the bad array
-        if ((i = this.bad.indexOf(pref)) !== -1) {
-            //Removes it from the neutral array
-            this.bad.splice(i, 1);
-        }
-    }
-
-    //Moves a preference from wherever it was to the bad preferences array
-    addBadPref(pref) {
-        let i;
-
-        //If the preference is not already in the bad array
-        if (this.bad.indexOf(pref) === -1) {
-            //Adds to the bad array
-            this.bad.push(pref);
-        }
-
-        //If the preference is in the good array
-        if ((i = this.good.indexOf(pref)) !== -1) {
-            //Removes it from the good array
-            this.good.splice(i, 1);
-        }
-
-        //If the preference is in the neutral array
-        if ((i = this.neutral.indexOf(pref)) !== -1) {
-            //Removes it from the neutral array
-            this.neutral.splice(i, 1);
-        }
-    }
-}
+/**
+ * @external Category
+ * @see {@link category-preference-manager.js}
+ */
 
 module.exports = class {
 
@@ -112,7 +43,11 @@ module.exports = class {
         //The number of suggestions given
         this.numSuggestions = 0;
 
-        this.prices = new Preference(DEFAULT_PRICES);
+        this.timesRanked = 0;
+
+        this.pricePreferenceManager = new PricePreferenceManager();
+        this.distancePreferenceManager = new DistancePreferenceManager();
+        this.categoryPreferenceManager = new CategoryPreferenceManager();
 
         setTimeout(this.deactivate, TIME_ACTIVE);
     }
@@ -132,34 +67,63 @@ module.exports = class {
 	// 		value: string,			//The category title
 	// 		pref: string			//"GOOD", "BAD", "NEUTRAL"
 	// 	}[]
-	// }
-    addPreference(pref) {
-        addPricePref(pref.price);
-        addDistancePref(pref.distance);
-        //TODO: Preferences for categories
-    }
-
-    //Adds a price preference
-    // price: {
-    //     value: string,          //"$", "$$", "$$$", "$$$$"
-    //     pref: string            //"GOOD", "BAD", "NEUTRAL"
     // }
-    addPricePref(price) {
-        switch(price.pref) {
-            case BAD: 
-                this.prices.addBadPref(price.value);
-                break;
-            case NEUTRAL:
-                this.prices.addNeutralPref(price.value);
-                break;
-            case GOOD:
-                this.prices.addGoodPref(price.value);
-                break;
-        }
+    
+    addPreferences(prefs) {
+        this.restaurants.shift();
+        this.pricePreferenceManager.addPref(prefs.price);
+        this.distancePreferenceManager.addPref(prefs.distance);
+        this.categoryPreferenceManager.addPrefs(prefs.categories);
+        this.rankRestaurants();
     }
 
-    addDistancePref(dist) {
-        //TODO: Distance preferences
+    /**
+     * 
+     * Assigns each restaurant a rating based on user preferences and then sorts the array.
+     * Sorted from highest rated to lowest rated
+     * 
+     * @private
+     * @return { void }
+     * 
+     */
+    rankRestaurants() {
+        console.log("RANKING RESTAURANTS");
+
+        if (this.timesRanked == 0)
+            this.capture();
+
+        for (let i = 0; i < this.restaurants.length; ++i) {
+            console.log(this.restaurants[i].name);
+            let priceRating = this.pricePreferenceManager.rate(this.restaurants[i].price);
+            let distanceRating = this.distancePreferenceManager.rate(this.restaurants[i].distance);
+            let categoryRating = this.categoryPreferenceManager.rateAll(this.restaurants[i].categories);
+
+            // Overall rating is the average of the 3 individual ratings
+            this.restaurants[i].preferenceRating = (priceRating + distanceRating + categoryRating) / 3.0;
+        }
+
+        console.log("FINISHED RATING");
+
+        // Sorts using insertion sort
+        for (let i = 1; i < this.restaurants.length; ++i) {
+            let x = this.restaurants[i];
+            let j;
+            for (j = i - 1; j >= 0 && this.restaurants[j].preferenceRating < x.preferenceRating; --j) {
+                this.restaurants[j + 1] = this.restaurants[j];
+            }
+            this.restaurants[j + 1] = x;
+        }
+        console.log("FINISHED SORTING");
+        this.timesRanked++;
+        this.capture();
+    }
+
+    capture() {
+        console.log("CAPTURING");
+        fs.writeFile(this.timesRanked + ".json", JSON.stringify(this.restaurants, null, 4), (err) => {
+            if (err) console.log(err);
+            else console.log("FINISHED CAPTURING");
+        });
     }
 
     //Returns a suggestion in the form of a Yelp Business object
@@ -197,6 +161,27 @@ module.exports = class {
     //     url,
     //     transactions: []
     // }
+    /**
+     * 
+     * @typedef Restaurant
+     * @type object
+     * @property { { title: string, alias: string } [] } categories
+     * @property { { latitude: number, longitude: number } } coordinates
+     * @property { string } display_phone
+     * @property { number } distance
+     * @property { string } id
+     * @property { string } image_url
+     * @property { boolean } is_closed
+     * @property { { address1: string, address2: string, address3: string, city: string, country: string, display_address: string[], state: string, zip_code: string }} location
+     * @property { string } name
+     * @property { string } phone
+     * @property { string } price
+     * @property { number } rating
+     * @property { number } review_count
+     * @property { string } url
+     * @property { string[] } transactions
+     * 
+     */
     suggest(req, res, next) {
 
         //If the engine hasn't suggested anything yet
@@ -207,23 +192,24 @@ module.exports = class {
                 latitude: this.lat,
                 longitude: this.lng,
                 categories: "restaurants",
-                distance: 25000,
+                //distance: 25000,
                 open_now: true,
-                limit: 10
+                limit: 50
             }).then((results) => {
-                this.results = results.jsonBody;
-                console.log(this.results);
+                /**
+                 * @type { Restaurant[] }
+                 */
+                this.restaurants = results.jsonBody.businesses;
+                console.log(this.restaurants.length);
                 //Returns the first suggestion
-                res.json(this.results.businesses[0]);
+                res.json(this.restaurants[0]);
             }).catch((err) => {
                 console.log(err);
             })
         }
         //If less than 10 suggestions have been made
         else if (this.numSuggestions < 10) {
-            //Suggests another restaurant randomly
-            //10 restaurants should provide enough feedback to generate an accurate picture of what the user wants
-            res.json(this.results.businesses[this.numSuggestions++]);
+            res.json(this.restaurants[0]);
         }
         //TODO: 2nd yelp query
     }

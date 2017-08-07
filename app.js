@@ -83,7 +83,7 @@ app.get("/go/:key", (req, res, next) => {
 
 app.post("/go/:key", (req, res, next) => {
     console.log(JSON.stringify(req.body, null, 4));
-    //TODO: Send next suggestion
+    se.addPreferences(req.params.key, req.body);
     res.send({ status: "OK" });
 })
 

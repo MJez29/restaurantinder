@@ -1,6 +1,10 @@
-class FixedPreference {
+let Preference = require("./preference");
 
-    constructor(neutral) {
+// The base class for preferences that can have a fixed set of values
+
+module.exports = class FixedValuePreferenceManager {
+
+    constructor(neutral = []) {
         this.good = [];
         this.neutral = neutral;
         this.bad = [];
@@ -75,11 +79,32 @@ class FixedPreference {
         }
     }
 
+    // Adds a preference to manage
+    // Other classes should call this method rather than addGoodPref, addBadPref and addNeutralPref
+    //
+    // pref: {
+    //     pref: string,        // One of the values of Preference
+    //     value: string        // Which value the preference is for
+    // }
+    addPref(pref) {
+        switch(pref.pref) {
+            case Preference.GOOD:
+                this.addGoodPref(pref.value);
+                break;
+            case Preference.NEUTRAL:
+                this.addNeutralPref(pref.value);
+                break;
+            case Preference.BAD:
+                this.addBadPref(pref.value);
+                break;
+        }
+    }
+
     //Gives a given preference between -1 and 1
     //1 being good, 0 being neutral and -1 being bad
-    rate(pref) {
+    rate(v) {
 
-        //This method must be implemented in parent classes
+        //This method must be implemented in child classes
         throw new Error("Pref.rate() not implemented");
     }
 }

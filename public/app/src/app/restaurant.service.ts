@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 
 const REQUEST_OPTIONS = new RequestOptions({ headers: new Headers({ 'Content-Type': 'application/json' }) });
 
-const POST_LOCATION_URL = "http://192.168.2.16:3000/go";//"http://localhost:3000/go";
+const POST_LOCATION_URL = "http://192.168.2.16:3000/go/";//"http://localhost:3000/go";
 const GET_GEOCODE_URL = "http://192.168.2.16:3000/geocode";
 const GET_RESTAURANT_URL = "http://192.168.2.16:3000/go/";//"http://localhost:3000/go/";
 const POST_FEEDBACK_URL = "http://192.168.2.16:3000/go/";//"http://localhost:3000/go/";

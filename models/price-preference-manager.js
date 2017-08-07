@@ -1,8 +1,8 @@
-let FixedPref = require("./fixed-pref");
+let FixedValuePreferenceManager = require("./fixed-value-preference-manager");
 
 let OPTIONS = ["$", "$$", "$$$", "$$$$"];
 
-module.exports = class PricePref extends FixedPref {
+module.exports = class PricePreferenceManager extends FixedValuePreferenceManager {
 
     constructor() {
         super(OPTIONS);
@@ -11,10 +11,10 @@ module.exports = class PricePref extends FixedPref {
     //Returns -1, 0 or 1 based on which array the pref is in
     //The price rating of a restaurant is very rudementary and is not very meaningful
     //Cheap dishes can be found at expensive restaurants and vice versa at cheap restaurants
-    rate(pref) {
-        if (pref in this.good) {
+    rate(price) {
+        if (price in this.good) {
             return 1;
-        } else if (pref in this.bad) {
+        } else if (price in this.bad) {
             return -1;
         } else {
             return 0;
