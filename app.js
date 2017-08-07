@@ -61,7 +61,6 @@ app.get("/go", (req, res, next) => {
 //     lng: number
 // }
 app.post("/go", (req, res, next) => {
-    console.log("MOO" + req.body);
     if (req.body.lat && req.body.lng) {
         let key = se.createSuggestion(req.body.lat, req.body.lng);
 
@@ -82,7 +81,6 @@ app.get("/go/:key", (req, res, next) => {
 });
 
 app.post("/go/:key", (req, res, next) => {
-    console.log(JSON.stringify(req.body, null, 4));
     se.addPreferences(req.params.key, req.body);
     res.send({ status: "OK" });
 })

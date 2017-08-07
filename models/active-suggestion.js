@@ -23,6 +23,37 @@ const GOOD = "GOOD";
 const NEUTRAL = "NEUTRAL";
 const BAD = "BAD";
 
+// All 3 weights must add up to 1
+/**
+ * 
+ * The weight assigned to the categories rating
+ * 
+ * @const
+ * @type { number }
+ * 
+ */
+const CATEGORY_WEIGHT = 0.6;
+
+/**
+ * 
+ * The weight assigned to the price rating
+ * 
+ * @const
+ * @type { number }
+ * 
+ */
+const PRICE_WEIGHT = 0.2;
+
+/**
+ * 
+ * The weight assigned to the distance rating
+ * 
+ * @const
+ * @type { number }
+ * 
+ */
+const DISTANCE_WEIGHT = 0.2;
+
 //The amount of time that a suggestion is active for in ms
 const TIME_ACTIVE = 5 * 60 * 1000;
 
@@ -71,6 +102,8 @@ module.exports = class {
     // }
     
     addPreferences(prefs) {
+        if (this.timesRanked == 0)
+            console.log(this.timesRanked + ": " + JSON.stringify(this.distancePreferenceManager.preferences, null, 4));
         this.restaurants.shift();
         this.pricePreferenceManager.addPref(prefs.price);
         this.distancePreferenceManager.addPref(prefs.distance);
@@ -88,22 +121,18 @@ module.exports = class {
      * 
      */
     rankRestaurants() {
-        console.log("RANKING RESTAURANTS");
 
         if (this.timesRanked == 0)
             this.capture();
 
         for (let i = 0; i < this.restaurants.length; ++i) {
-            console.log(this.restaurants[i].name);
-            let priceRating = this.pricePreferenceManager.rate(this.restaurants[i].price);
-            let distanceRating = this.distancePreferenceManager.rate(this.restaurants[i].distance);
-            let categoryRating = this.categoryPreferenceManager.rateAll(this.restaurants[i].categories);
+            let priceRating = this.restaurants[i].pricePreferenceRating = this.pricePreferenceManager.rate(this.restaurants[i].price);
+            let distanceRating = this.restaurants[i].distancePreferenceRating = this.distancePreferenceManager.rate(this.restaurants[i].distance);
+            let categoryRating = this.restaurants[i].categoryPreferenceRating = this.categoryPreferenceManager.rateAll(this.restaurants[i].categories);
 
             // Overall rating is the average of the 3 individual ratings
-            this.restaurants[i].preferenceRating = (priceRating + distanceRating + categoryRating) / 3.0;
+            this.restaurants[i].preferenceRating = priceRating * PRICE_WEIGHT + distanceRating * DISTANCE_WEIGHT + categoryRating * CATEGORY_WEIGHT;
         }
-
-        console.log("FINISHED RATING");
 
         // Sorts using insertion sort
         for (let i = 1; i < this.restaurants.length; ++i) {
@@ -114,9 +143,9 @@ module.exports = class {
             }
             this.restaurants[j + 1] = x;
         }
-        console.log("FINISHED SORTING");
         this.timesRanked++;
         this.capture();
+        console.log(this.timesRanked + ": " + JSON.stringify(this.distancePreferenceManager.preferences, null, 4));
     }
 
     capture() {
@@ -193,15 +222,15 @@ module.exports = class {
                 latitude: this.lat,
                 longitude: this.lng,
                 categories: "restaurants",
-                //distance: 10000,
+                distance: 25000,
                 sort_by: "distance",
-                open_now: true,
                 limit: 50
             }).then((results) => {
                 /**
                  * @type { Restaurant[] }
                  */
                 this.restaurants = results.jsonBody.businesses;
+                console.log("RESTAURANTS: " + this.restaurants.length);
 
                 // Converts the data in Restaurant objects
                 for (let i = 0; i < this.restaurants.length; ++i) {
@@ -213,12 +242,23 @@ module.exports = class {
                 console.log(err);
             })
         }
+        else if (this.numSuggestions < 4) {
+            this.shuffle(this.restaurants);
+            res.json(this.restaurants[0]);
+        }
         //If less than 10 suggestions have been made
-        else if (this.numSuggestions < 10) {
+        else if (this.numSuggestions < 100) {
             res.json(this.restaurants[0]);
         }
         //TODO: 2nd yelp query
     }
+
+    shuffle(a) {
+    for (let i = a.length; i; i--) {
+        let j = Math.floor(Math.random() * i);
+        [a[i - 1], a[j]] = [a[j], a[i - 1]];
+    }
+}
 
     deactivate() {
         //TODO: Convert to inactive suggestion

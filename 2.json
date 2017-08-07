@@ -1,0 +1,2563 @@
+[
+    {
+        "categories": [
+            {
+                "alias": "italian",
+                "title": "Italian",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2392519643859,
+            "longitude": -83.0159577531537
+        },
+        "display_phone": "+1 519-250-7827",
+        "distance": {
+            "value": 1316.569832804,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "lucca-restaurant-and-social-lounge-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/ILBEJQK54bEkuw7SBfDBwA/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "2055 Sanwich W Parkway",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9H 2S4",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "2055 Sanwich W Parkway",
+                "Windsor, ON N9H 2S4",
+                "Canada"
+            ]
+        },
+        "name": "Lucca Restaurant & Social Lounge",
+        "phone": "+15192507827",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 5,
+        "review_count": 5,
+        "url": "https://www.yelp.com/biz/lucca-restaurant-and-social-lounge-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "bakeries",
+                "title": "Bakeries",
+                "pref": "neutral"
+            },
+            {
+                "alias": "gluten_free",
+                "title": "Gluten-Free",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2565614,
+            "longitude": -83.0036454
+        },
+        "display_phone": "+1 519-250-4272",
+        "distance": {
+            "value": 1861.549810242,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "healthy-creations-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/HzSTio98BK9yKg-rCKLUTA/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "333 Dougall Square",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1X3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "333 Dougall Square",
+                "Windsor, ON N9G 1X3",
+                "Canada"
+            ]
+        },
+        "name": "Healthy Creations",
+        "phone": "+15192504272",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4.5,
+        "review_count": 3,
+        "url": "https://www.yelp.com/biz/healthy-creations-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "mexican",
+                "title": "Mexican",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2585198,
+            "longitude": -82.9974602
+        },
+        "display_phone": "",
+        "distance": {
+            "value": 2097.6425631859997,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "xaco-taco-windsor-2",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/wNb__qff_TeMy1xkcyPeqg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "300 Cabana Road E",
+            "address2": "",
+            "address3": null,
+            "city": "Windsor",
+            "zip_code": "N9G 1A3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "300 Cabana Road E",
+                "Windsor, ON N9G 1A3",
+                "Canada"
+            ]
+        },
+        "name": "Xaco Taco",
+        "phone": "",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 3.5,
+        "review_count": 10,
+        "url": "https://www.yelp.com/biz/xaco-taco-windsor-2?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "sportsbars",
+                "title": "Sports Bars",
+                "pref": "neutral"
+            },
+            {
+                "alias": "newcanadian",
+                "title": "Canadian (New)",
+                "pref": "neutral"
+            },
+            {
+                "alias": "chicken_wings",
+                "title": "Chicken Wings",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.274213,
+            "longitude": -83.014622
+        },
+        "display_phone": "+1 519-966-1228",
+        "distance": {
+            "value": 3989.8889245879996,
+            "pref": "good",
+            "tag": 7
+        },
+        "id": "cramdons-tap-and-eatery-windsor-2",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/B2e3h7sLcIre_xMQv6DLDg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "2950 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S2",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "2950 Dougall Avenue",
+                "Windsor, ON N9E 1S2",
+                "Canada"
+            ]
+        },
+        "name": "Cramdon's Tap & Eatery",
+        "phone": "+15199661228",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4,
+        "review_count": 9,
+        "url": "https://www.yelp.com/biz/cramdons-tap-and-eatery-windsor-2?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "dimsum",
+                "title": "Dim Sum",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.26808,
+            "longitude": -83.00185
+        },
+        "display_phone": "+1 519-969-9563",
+        "distance": {
+            "value": 3132.584172416,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "shun-king-restaurant-windsor",
+        "image_url": "",
+        "is_closed": false,
+        "location": {
+            "address1": "3395 Howard Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 3N6",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3395 Howard Avenue",
+                "Windsor, ON N9E 3N6",
+                "Canada"
+            ]
+        },
+        "name": "Shun King Restaurant",
+        "phone": "+15199699563",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/shun-king-restaurant-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "italian",
+                "title": "Italian",
+                "pref": "neutral"
+            },
+            {
+                "alias": "tapasmallplates",
+                "title": "Tapas/Small Plates",
+                "pref": "neutral"
+            },
+            {
+                "alias": "gastropubs",
+                "title": "Gastropubs",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2530448441574,
+            "longitude": -83.001880645752
+        },
+        "display_phone": "+1 519-972-5699",
+        "distance": {
+            "value": 1458.524403382,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "toscana-restaurant-and-wine-bar-windsor",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/NEyRKeRBJvh1sUWTCEAU8A/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3891 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1X3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3891 Dougall Avenue",
+                "Windsor, ON N9G 1X3",
+                "Canada"
+            ]
+        },
+        "name": "Toscana Restaurant and Wine Bar",
+        "phone": "+15199725699",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4,
+        "review_count": 19,
+        "url": "https://www.yelp.com/biz/toscana-restaurant-and-wine-bar-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "tradamerican",
+                "title": "American (Traditional)",
+                "pref": "neutral"
+            },
+            {
+                "alias": "chicken_wings",
+                "title": "Chicken Wings",
+                "pref": "neutral"
+            },
+            {
+                "alias": "sportsbars",
+                "title": "Sports Bars",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2746699,
+            "longitude": -83.0035562
+        },
+        "display_phone": "+1 519-966-4646",
+        "distance": {
+            "value": 3865.9864817239995,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "buffalo-wild-wings-windsor-2",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/G6aolyrUMSZzX7P6R4IlPg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3100 Howard Avenue",
+            "address2": "#D10",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8X 3Y8",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3100 Howard Avenue",
+                "#D10",
+                "Windsor, ON N8X 3Y8",
+                "Canada"
+            ]
+        },
+        "name": "Buffalo Wild Wings",
+        "phone": "+15199664646",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 3,
+        "review_count": 19,
+        "url": "https://www.yelp.com/biz/buffalo-wild-wings-windsor-2?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "chinese",
+                "title": "Chinese",
+                "pref": "neutral"
+            },
+            {
+                "alias": "seafood",
+                "title": "Seafood",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.25817,
+            "longitude": -82.9951899
+        },
+        "display_phone": "+1 519-966-2076",
+        "distance": {
+            "value": 2060.591533036,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "new-china-kitchen-eatery-windsor",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/qwoUGjw19vS4MlYgNSfbUg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "511 Cabana Road E",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A5",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "511 Cabana Road E",
+                "Windsor, ON N9G 1A5",
+                "Canada"
+            ]
+        },
+        "name": "New China Kitchen Eatery",
+        "phone": "+15199662076",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4,
+        "review_count": 5,
+        "url": "https://www.yelp.com/biz/new-china-kitchen-eatery-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "mideastern",
+                "title": "Middle Eastern",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.25889,
+            "longitude": -82.99722
+        },
+        "display_phone": "+1 519-967-0000",
+        "distance": {
+            "value": 2131.536872926,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "mazaar-south-windsor-2",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/6iU3B0qBPLat4WL3cK8-kA/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "350 Cabana Road E",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "350 Cabana Road E",
+                "Windsor, ON N9G 1A3",
+                "Canada"
+            ]
+        },
+        "name": "MAZAAR - South",
+        "phone": "+15199670000",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 3.5,
+        "review_count": 3,
+        "url": "https://www.yelp.com/biz/mazaar-south-windsor-2?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "panasian",
+                "title": "Pan Asian",
+                "pref": "neutral"
+            },
+            {
+                "alias": "juicebars",
+                "title": "Juice Bars & Smoothies",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2693553965018,
+            "longitude": -83.0110467597842
+        },
+        "display_phone": "+1 519-969-0333",
+        "distance": {
+            "value": 3388.2934924879996,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "lees-asian-cuisine-windsor-2",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/ZoKJv39qMPJ3_Bauchm3Pw/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3140 Dougall Avenue",
+            "address2": "",
+            "address3": null,
+            "city": "Windsor",
+            "zip_code": "N9E 1S6",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3140 Dougall Avenue",
+                "Windsor, ON N9E 1S6",
+                "Canada"
+            ]
+        },
+        "name": "Lee's Asian Cuisine",
+        "phone": "+15199690333",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 3.5,
+        "review_count": 3,
+        "url": "https://www.yelp.com/biz/lees-asian-cuisine-windsor-2?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "chinese",
+                "title": "Chinese",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2736932,
+            "longitude": -83.0045804
+        },
+        "display_phone": "+1 519-969-2250",
+        "distance": {
+            "value": 3869.6008984299997,
+            "pref": "good",
+            "tag": 1
+        },
+        "id": "manchu-wok-windsor",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/laMOTskZrVAfeVZO__fTCw/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3100 Howard Avenue",
+            "address2": "Unit Q4",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8X 3Y8",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3100 Howard Avenue",
+                "Unit Q4",
+                "Windsor, ON N8X 3Y8",
+                "Canada"
+            ]
+        },
+        "name": "Manchu Wok",
+        "phone": "+15199692250",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 2.5,
+        "review_count": 4,
+        "url": "https://www.yelp.com/biz/manchu-wok-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "italian",
+                "title": "Italian",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.25659,
+            "longitude": -83.0026199
+        },
+        "display_phone": "+1 519-915-6469",
+        "distance": {
+            "value": 1863.285322498,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "spago-trattoria-and-pizzeria-windsor-3",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/DpatPYJkA4hVcIHGaNzj8Q/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3850 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1X2",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3850 Dougall Avenue",
+                "Windsor, ON N9G 1X2",
+                "Canada"
+            ]
+        },
+        "name": "Spago Trattoria & Pizzeria",
+        "phone": "+15199156469",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4,
+        "review_count": 10,
+        "url": "https://www.yelp.com/biz/spago-trattoria-and-pizzeria-windsor-3?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "burgers",
+                "title": "Burgers",
+                "pref": "neutral"
+            },
+            {
+                "alias": "chicken_wings",
+                "title": "Chicken Wings",
+                "pref": "neutral"
+            },
+            {
+                "alias": "sportsbars",
+                "title": "Sports Bars",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2683252,
+            "longitude": -83.0107459
+        },
+        "display_phone": "+1 519-946-0900",
+        "distance": {
+            "value": 3333.5656327119996,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "john-max-sports-and-wings-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/2xop490YwSN4Xle6SN8L0A/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3208 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S6",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3208 Dougall Avenue",
+                "Windsor, ON N9E 1S6",
+                "Canada"
+            ]
+        },
+        "name": "John Max Sports & Wings",
+        "phone": "+15199460900",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4,
+        "review_count": 15,
+        "url": "https://www.yelp.com/biz/john-max-sports-and-wings-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "chicken_wings",
+                "title": "Chicken Wings",
+                "pref": "neutral"
+            },
+            {
+                "alias": "tradamerican",
+                "title": "American (Traditional)",
+                "pref": "neutral"
+            },
+            {
+                "alias": "burgers",
+                "title": "Burgers",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2730395,
+            "longitude": -83.0123663
+        },
+        "display_phone": "+1 519-250-9809",
+        "distance": {
+            "value": 3812.1633928959996,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "southside-bar-and-grill-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/omeFOAt5nMsZ73wBDUYF0w/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3032 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S4",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3032 Dougall Avenue",
+                "Windsor, ON N9E 1S4",
+                "Canada"
+            ]
+        },
+        "name": "Southside Bar & Grill",
+        "phone": "+15192509809",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 1.5,
+        "review_count": 2,
+        "url": "https://www.yelp.com/biz/southside-bar-and-grill-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.4
+    },
+    {
+        "categories": [
+            {
+                "alias": "thai",
+                "title": "Thai",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.26808,
+            "longitude": -83.00185
+        },
+        "display_phone": "+1 519-967-1919",
+        "distance": {
+            "value": 3113.5760967419997,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "thai-time-windsor",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/vIGDApofPeUwoWOfOTHoqA/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3395 Howard Avenue",
+            "address2": "Units 5 and 6",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 3N6",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3395 Howard Avenue",
+                "Units 5 and 6",
+                "Windsor, ON N9E 3N6",
+                "Canada"
+            ]
+        },
+        "name": "Thai Time",
+        "phone": "+15199671919",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 4.5,
+        "review_count": 3,
+        "url": "https://www.yelp.com/biz/thai-time-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "salad",
+                "title": "Salad",
+                "pref": "neutral"
+            },
+            {
+                "alias": "soup",
+                "title": "Soup",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2762170087404,
+            "longitude": -83.0008828639984
+        },
+        "display_phone": "+1 519-967-1011",
+        "distance": {
+            "value": 4027.7713397819994,
+            "pref": "good",
+            "tag": 7
+        },
+        "id": "soup-r-salads-windsor",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/pdaiNcOdrVjT_vKKzDKarA/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "Devonshire Mall",
+            "address2": "3100 Howard Avenue",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8X 4T3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "Devonshire Mall",
+                "3100 Howard Avenue",
+                "Windsor, ON N8X 4T3",
+                "Canada"
+            ]
+        },
+        "name": "Soup R Salads",
+        "phone": "+15199671011",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/soup-r-salads-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "mexican",
+                "title": "Mexican",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2736932,
+            "longitude": -83.0045804
+        },
+        "display_phone": "+1 519-969-9028",
+        "distance": {
+            "value": 3869.6008984299997,
+            "pref": "good",
+            "tag": 1
+        },
+        "id": "taco-bell-windsor-6",
+        "image_url": "",
+        "is_closed": false,
+        "location": {
+            "address1": "3100 Howard Ave",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8X 3Y8",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3100 Howard Ave",
+                "Windsor, ON N8X 3Y8",
+                "Canada"
+            ]
+        },
+        "name": "Taco Bell",
+        "phone": "+15199699028",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 1,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/taco-bell-windsor-6?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "indpak",
+                "title": "Indian",
+                "pref": "neutral"
+            },
+            {
+                "alias": "importedfood",
+                "title": "Imported Food",
+                "pref": "neutral"
+            },
+            {
+                "alias": "intlgrocery",
+                "title": "International Grocery",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2686785,
+            "longitude": -83.0251765
+        },
+        "display_phone": "+1 519-946-0580",
+        "distance": {
+            "value": 3823.286829108,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "india-grocers-windsor",
+        "image_url": "",
+        "is_closed": false,
+        "location": {
+            "address1": "1249 Grand Marais Road W",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1E1",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "1249 Grand Marais Road W",
+                "Windsor, ON N9E 1E1",
+                "Canada"
+            ]
+        },
+        "name": "India Grocers",
+        "phone": "+15199460580",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 4,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/india-grocers-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "burgers",
+                "title": "Burgers",
+                "pref": "neutral"
+            },
+            {
+                "alias": "hotdogs",
+                "title": "Fast Food",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.27209,
+            "longitude": -83.01209
+        },
+        "display_phone": "+1 519-966-3255",
+        "distance": {
+            "value": 3706.393222878,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "a-and-w-windsor-6",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/W4C4UPEN9JmIO51pOOt2Gg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3090 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S4",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3090 Dougall Avenue",
+                "Windsor, ON N9E 1S4",
+                "Canada"
+            ]
+        },
+        "name": "A&W",
+        "phone": "+15199663255",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 4,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/a-and-w-windsor-6?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "hotdogs",
+                "title": "Fast Food",
+                "pref": "neutral"
+            },
+            {
+                "alias": "chicken_wings",
+                "title": "Chicken Wings",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.27346,
+            "longitude": -83.01348
+        },
+        "display_phone": "+1 519-969-7290",
+        "distance": {
+            "value": 3881.889014,
+            "pref": "good",
+            "tag": 7
+        },
+        "id": "kfc-windsor-15",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/H6XIdc5XkFhNrN7R2O7Anw/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3006 Dougall Ave",
+            "address2": null,
+            "address3": null,
+            "city": "Windsor",
+            "zip_code": "N9E 1S4",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3006 Dougall Ave",
+                "Windsor, ON N9E 1S4",
+                "Canada"
+            ]
+        },
+        "name": "KFC",
+        "phone": "+15199697290",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 1,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/kfc-windsor-15?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "burgers",
+                "title": "Burgers",
+                "pref": "neutral"
+            },
+            {
+                "alias": "hotdogs",
+                "title": "Fast Food",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.26994,
+            "longitude": -83.01061
+        },
+        "display_phone": "+1 519-972-6538",
+        "distance": {
+            "value": 3393.053920208,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "burger-king-windsor-7",
+        "image_url": "",
+        "is_closed": false,
+        "location": {
+            "address1": "3120 Dougall Ave",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S7",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3120 Dougall Ave",
+                "Windsor, ON N9E 1S7",
+                "Canada"
+            ]
+        },
+        "name": "Burger King",
+        "phone": "+15199726538",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 4,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/burger-king-windsor-7?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "panasian",
+                "title": "Pan Asian",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.25889,
+            "longitude": -82.99722
+        },
+        "display_phone": "+1 519-972-7878",
+        "distance": {
+            "value": 2094.2019551999997,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "budokan-panasian-bistro-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/g0Bqdhl29m-oL0bCsEH_qA/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "350 Cabana Road E",
+            "address2": "Unit 9",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "350 Cabana Road E",
+                "Unit 9",
+                "Windsor, ON N9G 1A3",
+                "Canada"
+            ]
+        },
+        "name": "Budokan Panasian Bistro",
+        "phone": "+15199727878",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 3.5,
+        "review_count": 3,
+        "url": "https://www.yelp.com/biz/budokan-panasian-bistro-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "tradamerican",
+                "title": "American (Traditional)",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.3132896,
+            "longitude": -83.0269012
+        },
+        "display_phone": "",
+        "distance": {
+            "value": 3647.7974753460003,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "dominion-golf-restaurant-windsor",
+        "image_url": "",
+        "is_closed": false,
+        "location": {
+            "address1": "6125 Howard Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N0R 1L0",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "6125 Howard Avenue",
+                "Windsor, ON N0R 1L0",
+                "Canada"
+            ]
+        },
+        "name": "Dominion Golf Restaurant",
+        "phone": "",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/dominion-golf-restaurant-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "diners",
+                "title": "Diners",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2700795967898,
+            "longitude": -82.9739803674663
+        },
+        "display_phone": "+1 226-221-9555",
+        "distance": {
+            "value": 3971.2873681979995,
+            "pref": "good",
+            "tag": 7
+        },
+        "id": "hi-ho-classic-diner-windsor",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/f7etURBZ_peiZ-T-jhnBmg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3691 Walker Rd",
+            "address2": "",
+            "address3": null,
+            "city": "Windsor",
+            "zip_code": "N8W 3S6",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3691 Walker Rd",
+                "Windsor, ON N8W 3S6",
+                "Canada"
+            ]
+        },
+        "name": "Hi-Ho Classic Diner",
+        "phone": "+12262219555",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 2,
+        "review_count": 3,
+        "url": "https://www.yelp.com/biz/hi-ho-classic-diner-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "mideastern",
+                "title": "Middle Eastern",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.24191,
+            "longitude": -83.0154699
+        },
+        "display_phone": "+1 519-250-0800",
+        "distance": {
+            "value": 1080.5368829344,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "ooh-yalla-shawarma-resto-and-cafe-windsor",
+        "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/b2EUn14dsZmH65kpZWVLwQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "1555 Talbot Road",
+            "address2": null,
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9H 2N2",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "1555 Talbot Road",
+                "Windsor, ON N9H 2N2",
+                "Canada"
+            ]
+        },
+        "name": "Ooh Yalla Shawarma Resto & Cafe",
+        "phone": "+15192500800",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/ooh-yalla-shawarma-resto-and-cafe-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "arabian",
+                "title": "Arabian",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2684781042022,
+            "longitude": -83.0258190259337
+        },
+        "display_phone": "+1 519-966-3737",
+        "distance": {
+            "value": 3813.3478671359994,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "shawarmanji-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/zj0eyQVd0e64jqXEduZKmQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "1285 Grand Maris West",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "1285 Grand Maris West",
+                "Windsor, ON N9E",
+                "Canada"
+            ]
+        },
+        "name": "Shawarmanji",
+        "phone": "+15199663737",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/shawarmanji-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "italian",
+                "title": "Italian",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2718823999842,
+            "longitude": -83.0120013326723
+        },
+        "display_phone": "+1 519-253-5662",
+        "distance": {
+            "value": 3679.8548844099996,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "koma-restaurant-windsor",
+        "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/kFurspaZxx0QgzLlhIhoXw/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3090 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S4",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3090 Dougall Avenue",
+                "Windsor, ON N9E 1S4",
+                "Canada"
+            ]
+        },
+        "name": "Koma Restaurant",
+        "phone": "+15192535662",
+        "price": {
+            "value": "$$$",
+            "pref": "neutral"
+        },
+        "rating": 4,
+        "review_count": 7,
+        "url": "https://www.yelp.com/biz/koma-restaurant-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "sandwiches",
+                "title": "Sandwiches",
+                "pref": "neutral"
+            },
+            {
+                "alias": "coffee",
+                "title": "Coffee & Tea",
+                "pref": "neutral"
+            },
+            {
+                "alias": "bagels",
+                "title": "Bagels",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2722710155397,
+            "longitude": -83.0138862133026
+        },
+        "display_phone": "+1 519-997-7432",
+        "distance": {
+            "value": 3765.6813084779997,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "the-earnest-bagel-company-windsor",
+        "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/jvMbrK3Wu6AR41V6V-_0Vw/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3041 Dougall Avenue",
+            "address2": "Unit 4",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3041 Dougall Avenue",
+                "Unit 4",
+                "Windsor, ON N9E 1S3",
+                "Canada"
+            ]
+        },
+        "name": "The Earnest Bagel Company",
+        "phone": "+15199977432",
+        "price": {
+            "value": "$",
+            "pref": "neutral"
+        },
+        "rating": 5,
+        "review_count": 8,
+        "url": "https://www.yelp.com/biz/the-earnest-bagel-company-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "chinese",
+                "title": "Chinese",
+                "pref": "neutral"
+            },
+            {
+                "alias": "newcanadian",
+                "title": "Canadian (New)",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.27228,
+            "longitude": -82.97556
+        },
+        "display_phone": "+1 519-969-8416",
+        "distance": {
+            "value": 4115.580631664,
+            "pref": "good",
+            "tag": 7
+        },
+        "id": "lone-fone-restaurant-and-tavern-windsor",
+        "image_url": "",
+        "is_closed": false,
+        "location": {
+            "address1": "3577 Walker Road",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8W 3S5",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3577 Walker Road",
+                "Windsor, ON N8W 3S5",
+                "Canada"
+            ]
+        },
+        "name": "Lone Fone Restaurant & Tavern",
+        "phone": "+15199698416",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 2.5,
+        "review_count": 2,
+        "url": "https://www.yelp.com/biz/lone-fone-restaurant-and-tavern-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "southern",
+                "title": "Southern",
+                "pref": "neutral"
+            },
+            {
+                "alias": "bbq",
+                "title": "Barbeque",
+                "pref": "neutral"
+            },
+            {
+                "alias": "hotdogs",
+                "title": "Fast Food",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2661119297829,
+            "longitude": -82.9716567865289
+        },
+        "display_phone": "+1 519-966-9339",
+        "distance": {
+            "value": 3724.511011664,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "rotisserie-moms-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/arlFSezLcGbxivUxacGa4Q/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3873 Walker Road",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8W 3T1",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3873 Walker Road",
+                "Windsor, ON N8W 3T1",
+                "Canada"
+            ]
+        },
+        "name": "Rotisserie Mom's",
+        "phone": "+15199669339",
+        "price": {
+            "value": "$",
+            "pref": "neutral"
+        },
+        "rating": 3,
+        "review_count": 8,
+        "url": "https://www.yelp.com/biz/rotisserie-moms-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "gourmet",
+                "title": "Specialty Food",
+                "pref": "neutral"
+            },
+            {
+                "alias": "hotdogs",
+                "title": "Fast Food",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2746699,
+            "longitude": -83.0035562
+        },
+        "display_phone": "+1 519-966-5336",
+        "distance": {
+            "value": 3865.9864817239995,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "new-york-fries-windsor-2",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/RpquRxmvEZOw3uWi-HhbtQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "Devonshire Mall",
+            "address2": "3100 Howard Avenue",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8X 3Y7",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "Devonshire Mall",
+                "3100 Howard Avenue",
+                "Windsor, ON N8X 3Y7",
+                "Canada"
+            ]
+        },
+        "name": "New York Fries",
+        "phone": "+15199665336",
+        "price": {
+            "value": "$",
+            "pref": "neutral"
+        },
+        "rating": 2.5,
+        "review_count": 3,
+        "url": "https://www.yelp.com/biz/new-york-fries-windsor-2?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "mediterranean",
+                "title": "Mediterranean",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.274742,
+            "longitude": -83.001662
+        },
+        "display_phone": "+1 416-251-3353",
+        "distance": {
+            "value": 3865.3816917519994,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "feta-and-olives-mediterranean-grill-windsor",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/2NmHFt79mczx5C9DiIqprg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "One Palace Pier Court",
+            "address2": "Suite 809",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8X 3Y7",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "One Palace Pier Court",
+                "Suite 809",
+                "Windsor, ON N8X 3Y7",
+                "Canada"
+            ]
+        },
+        "name": "Feta & Olives Mediterranean Grill",
+        "phone": "+14162513353",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/feta-and-olives-mediterranean-grill-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "lebanese",
+                "title": "Lebanese",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2659871,
+            "longitude": -83.0093874
+        },
+        "display_phone": "+1 519-250-0888",
+        "distance": {
+            "value": 2990.9216970479997,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "hamoudis-shawarma-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/FSWjlNG9oZzu0Of1pIpTjg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3392 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1H8",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3392 Dougall Avenue",
+                "Windsor, ON N9E 1H8",
+                "Canada"
+            ]
+        },
+        "name": "Hamoudi's Shawarma",
+        "phone": "+15192500888",
+        "price": {
+            "value": "$",
+            "pref": "neutral"
+        },
+        "rating": 3.5,
+        "review_count": 17,
+        "url": "https://www.yelp.com/biz/hamoudis-shawarma-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "sushi",
+                "title": "Sushi Bars",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2566366,
+            "longitude": -83.0027128
+        },
+        "display_phone": "+1 519-972-6838",
+        "distance": {
+            "value": 1863.285322498,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "iguana-sushi-bar-windsor-2",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/-jpPs9WNflUuRHj5Erxipg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3850 Dougall Ave",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1X2",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3850 Dougall Ave",
+                "Windsor, ON N9G 1X2",
+                "Canada"
+            ]
+        },
+        "name": "Iguana Sushi Bar",
+        "phone": "+15199726838",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 3.5,
+        "review_count": 8,
+        "url": "https://www.yelp.com/biz/iguana-sushi-bar-windsor-2?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "mideastern",
+                "title": "Middle Eastern",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.25889,
+            "longitude": -82.99722
+        },
+        "display_phone": "",
+        "distance": {
+            "value": 2090.677661534,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "taza-is-fresh-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/pw-WtIpk-QawOCGdfolzkQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "350 Cabana Rd E",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A1",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "350 Cabana Rd E",
+                "Windsor, ON N9G 1A1",
+                "Canada"
+            ]
+        },
+        "name": "Taza is Fresh",
+        "phone": "",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/taza-is-fresh-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "cafes",
+                "title": "Cafes",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2588882,
+            "longitude": -82.9972229
+        },
+        "display_phone": "+1 519-972-7878",
+        "distance": {
+            "value": 2093.345142584,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "cafe-cache-windsor",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/N3DjXpT36pVUIyjlo9onLQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "350 Cabana Road East",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "350 Cabana Road East",
+                "Windsor, ON N9G 1A3",
+                "Canada"
+            ]
+        },
+        "name": "Cafe Cache",
+        "phone": "+15199727878",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/cafe-cache-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "tradamerican",
+                "title": "American (Traditional)",
+                "pref": "neutral"
+            },
+            {
+                "alias": "newcanadian",
+                "title": "Canadian (New)",
+                "pref": "neutral"
+            },
+            {
+                "alias": "steak",
+                "title": "Steakhouses",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2736932,
+            "longitude": -83.0045804
+        },
+        "display_phone": "+1 519-250-3390",
+        "distance": {
+            "value": 3865.9864817239995,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "moxies-grill-and-bar-windsor",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/YTY1KvYsQ-RMETZRpv72-Q/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "20-3100 Howard Ave",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8X 3Y8",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "20-3100 Howard Ave",
+                "Windsor, ON N8X 3Y8",
+                "Canada"
+            ]
+        },
+        "name": "Moxie's Grill & Bar",
+        "phone": "+15192503390",
+        "price": {
+            "value": "$$$",
+            "pref": "neutral"
+        },
+        "rating": 3,
+        "review_count": 17,
+        "url": "https://www.yelp.com/biz/moxies-grill-and-bar-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "creperies",
+                "title": "Creperies",
+                "pref": "neutral"
+            },
+            {
+                "alias": "desserts",
+                "title": "Desserts",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2746699,
+            "longitude": -83.0035562
+        },
+        "display_phone": "+1 519-818-3099",
+        "distance": {
+            "value": 3865.9864817239995,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "crepe-delicious-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/K9zQ8N26Wa9JDbWA-xhryw/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3100 Howard Drive",
+            "address2": "Unit K12",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8X 3Y7",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3100 Howard Drive",
+                "Unit K12",
+                "Windsor, ON N8X 3Y7",
+                "Canada"
+            ]
+        },
+        "name": "Crepe Delicious",
+        "phone": "+15198183099",
+        "price": {
+            "value": "$",
+            "pref": "neutral"
+        },
+        "rating": 4,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/crepe-delicious-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "lebanese",
+                "title": "Lebanese",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2585198,
+            "longitude": -82.9974602
+        },
+        "display_phone": "+1 519-250-4866",
+        "distance": {
+            "value": 2097.6425631859997,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "hummazing-windsor-2",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/CDnxVSLGb0L0baipG42L2w/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "300 Cabana Road E",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A1",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "300 Cabana Road E",
+                "Windsor, ON N9G 1A1",
+                "Canada"
+            ]
+        },
+        "name": "Hummazing",
+        "phone": "+15192504866",
+        "price": {
+            "value": "$",
+            "pref": "neutral"
+        },
+        "rating": 4.5,
+        "review_count": 3,
+        "url": "https://www.yelp.com/biz/hummazing-windsor-2?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "breakfast_brunch",
+                "title": "Breakfast & Brunch",
+                "pref": "neutral"
+            },
+            {
+                "alias": "burgers",
+                "title": "Burgers",
+                "pref": "neutral"
+            },
+            {
+                "alias": "sandwiches",
+                "title": "Sandwiches",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.27003,
+            "longitude": -82.97413
+        },
+        "display_phone": "+1 519-969-3533",
+        "distance": {
+            "value": 3969.8301108279998,
+            "pref": "good",
+            "tag": 7
+        },
+        "id": "champions-roadhouse-and-restaurant-windsor",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/DIhDHD0fDz6DgwJf79gaaw/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3691 Walker Road",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8W 3S6",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3691 Walker Road",
+                "Windsor, ON N8W 3S6",
+                "Canada"
+            ]
+        },
+        "name": "Champion's Roadhouse & Restaurant",
+        "phone": "+15199693533",
+        "price": {
+            "pref": "neutral"
+        },
+        "rating": 2.5,
+        "review_count": 6,
+        "url": "https://www.yelp.com/biz/champions-roadhouse-and-restaurant-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": 0,
+        "preferenceRating": 0.2
+    },
+    {
+        "categories": [
+            {
+                "alias": "sushi",
+                "title": "Sushi Bars",
+                "pref": "neutral"
+            },
+            {
+                "alias": "japanese",
+                "title": "Japanese",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2736932,
+            "longitude": -83.0045804
+        },
+        "display_phone": "+1 519-966-3222",
+        "distance": {
+            "value": 3869.6008984299997,
+            "pref": "good",
+            "tag": 1
+        },
+        "id": "niko-sushi-windsor",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/4dRgvwhXzyGlVZXErKESRw/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3100 Howard Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N8X 3Y8",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3100 Howard Avenue",
+                "Windsor, ON N8X 3Y8",
+                "Canada"
+            ]
+        },
+        "name": "Niko Sushi",
+        "phone": "+15199663222",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 3,
+        "review_count": 6,
+        "url": "https://www.yelp.com/biz/niko-sushi-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -0.6666666666666666,
+        "preferenceRating": 5.551115123125783e-17
+    },
+    {
+        "categories": [
+            {
+                "alias": "japanese",
+                "title": "Japanese",
+                "pref": "bad"
+            },
+            {
+                "alias": "sushi",
+                "title": "Sushi Bars",
+                "pref": "neutral"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2583632,
+            "longitude": -82.9964047
+        },
+        "display_phone": "+1 519-972-0808",
+        "distance": {
+            "value": 2062.8663351259997,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "quick-sushi-windsor",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/R4FNQ-OWUyGw4ymUJAdffg/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "425 Cabana Road E",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A1",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "425 Cabana Road E",
+                "Windsor, ON N9G 1A1",
+                "Canada"
+            ]
+        },
+        "name": "Quick Sushi",
+        "phone": "+15199720808",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 3,
+        "review_count": 7,
+        "url": "https://www.yelp.com/biz/quick-sushi-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -0.6666666666666666,
+        "preferenceRating": 5.551115123125783e-17
+    },
+    {
+        "categories": [
+            {
+                "alias": "catering",
+                "title": "Caterers",
+                "pref": "neutral"
+            },
+            {
+                "alias": "italian",
+                "title": "Italian",
+                "pref": "neutral"
+            },
+            {
+                "alias": "pizza",
+                "title": "Pizza",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.25889,
+            "longitude": -82.99722
+        },
+        "display_phone": "+1 519-972-9433",
+        "distance": {
+            "value": 2131.536872926,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "armandos-trattoria-windsor",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/QOJ_hblwKD9aKQUiVABSJQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "350 Cabana Road E",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "350 Cabana Road E",
+                "Windsor, ON N9G 1A3",
+                "Canada"
+            ]
+        },
+        "name": "Armando's Trattoria",
+        "phone": "+15199729433",
+        "price": {
+            "value": "$$$",
+            "pref": "neutral"
+        },
+        "rating": 3.5,
+        "review_count": 15,
+        "url": "https://www.yelp.com/biz/armandos-trattoria-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 0,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -0.5,
+        "preferenceRating": -0.09999999999999998
+    },
+    {
+        "categories": [
+            {
+                "alias": "pizza",
+                "title": "Pizza",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2727099,
+            "longitude": -83.01418
+        },
+        "display_phone": "+1 519-969-2551",
+        "distance": {
+            "value": 3809.06476966,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "arcata-pizzeria-windsor",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/52USHuflKVYMSgDOM94fgQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3021 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3021 Dougall Avenue",
+                "Windsor, ON N9E 1S3",
+                "Canada"
+            ]
+        },
+        "name": "Arcata Pizzeria",
+        "phone": "+15199692551",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4,
+        "review_count": 11,
+        "url": "https://www.yelp.com/biz/arcata-pizzeria-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -1,
+        "preferenceRating": -0.19999999999999996
+    },
+    {
+        "categories": [
+            {
+                "alias": "pizza",
+                "title": "Pizza",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.27457,
+            "longitude": -83.01365
+        },
+        "display_phone": "+1 519-903-0000",
+        "distance": {
+            "value": 3931.9217852599995,
+            "pref": "good",
+            "tag": 7
+        },
+        "id": "cheese-wheelz-windsor-3",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/6y9Uy14FDJpJhErrXXNWUQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "2950 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S2",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "2950 Dougall Avenue",
+                "Windsor, ON N9E 1S2",
+                "Canada"
+            ]
+        },
+        "name": "Cheese Wheelz",
+        "phone": "+15199030000",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 2.5,
+        "review_count": 6,
+        "url": "https://www.yelp.com/biz/cheese-wheelz-windsor-3?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -1,
+        "preferenceRating": -0.19999999999999996
+    },
+    {
+        "categories": [
+            {
+                "alias": "pizza",
+                "title": "Pizza",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2684667,
+            "longitude": -83.0245008
+        },
+        "display_phone": "+1 519-966-4242",
+        "distance": {
+            "value": 3793.5291669039993,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "comos-pizza-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/nvI8aoayV4i0yAUUqpg3oA/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "2985 Longfellow Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 2L3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "2985 Longfellow Avenue",
+                "Windsor, ON N9E 2L3",
+                "Canada"
+            ]
+        },
+        "name": "Como's Pizza",
+        "phone": "+15199664242",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4.5,
+        "review_count": 12,
+        "url": "https://www.yelp.com/biz/comos-pizza-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -1,
+        "preferenceRating": -0.19999999999999996
+    },
+    {
+        "categories": [
+            {
+                "alias": "pizza",
+                "title": "Pizza",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2733388,
+            "longitude": -83.0125224
+        },
+        "display_phone": "+1 519-969-6851",
+        "distance": {
+            "value": 3847.4016624700002,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "capri-pizza-windsor-2",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/ixzhVW3CkgqnqIcAE6RNzA/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3020 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S4",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3020 Dougall Avenue",
+                "Windsor, ON N9E 1S4",
+                "Canada"
+            ]
+        },
+        "name": "Capri Pizza",
+        "phone": "+15199696851",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4,
+        "review_count": 19,
+        "url": "https://www.yelp.com/biz/capri-pizza-windsor-2?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -1,
+        "preferenceRating": -0.19999999999999996
+    },
+    {
+        "categories": [
+            {
+                "alias": "pizza",
+                "title": "Pizza",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2561438,
+            "longitude": -83.0032437
+        },
+        "display_phone": "+1 519-972-3488",
+        "distance": {
+            "value": 1839.359425652,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "johnny-piez-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/XjUtDAsHfvAuOTUR96UHww/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3839 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1X3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3839 Dougall Avenue",
+                "Windsor, ON N9G 1X3",
+                "Canada"
+            ]
+        },
+        "name": "Johnny Piez",
+        "phone": "+15199723488",
+        "price": {
+            "value": "$$",
+            "pref": "good"
+        },
+        "rating": 4.5,
+        "review_count": 6,
+        "url": "https://www.yelp.com/biz/johnny-piez-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": 1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -1,
+        "preferenceRating": -0.19999999999999996
+    }
+]

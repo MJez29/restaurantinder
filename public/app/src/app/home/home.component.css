@@ -55,3 +55,23 @@
 
     width: calc(52 * 9em / 207);
 }
+
+#what-others-show-you {
+    padding: 20px;
+}
+
+#what-others-show-you-img-container {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+    /* border: 2px solid #c8c8c8;
+    border-radius: 15px;
+    padding: 10px; */
+    max-width: 100%;
+}
+
+#what-others-show-you-img-container img {
+    padding: 2px;
+    box-sizing: border-box;
+    height: 25px;
+}

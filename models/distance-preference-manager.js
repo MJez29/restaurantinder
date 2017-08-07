@@ -32,14 +32,17 @@ module.exports = class DistancePreferenceManager extends InfiniteValuePreference
                 // Returns an extreme or 0
                 switch (this.preferences[mid].pref) {
                     case Preference.GOOD:
+                    d.tag = 1;
                         d.pref = Preference.GOOD;
                         return 1;
                     case Preference.BAD:
                         d.pref = Preference.BAD;
+                        d.tag = 2;
                         return -1;
                     case Preference.NEUTRAL:
                     default:
                         d.pref = Preference.NEUTRAL;
+                        d.tag = 3;
                         return 0;
                 }
             } else {
@@ -52,20 +55,23 @@ module.exports = class DistancePreferenceManager extends InfiniteValuePreference
             let r;
             switch (this.preferences[0].pref) {
                 case Preference.GOOD:
-                    r = Math.min(1, 2500 / (this.preferences[0].value - d.value));
+                    r = Math.min(1, 3500 / (this.preferences[0].value - d.value));
                     if (r == 1) {
                         d.pref = Preference.GOOD;
+                        d.tag = 4;
                     }
                     return r;
                 case Preference.BAD:
-                    r = Math.max(-1, -2500 / (this.preferences[0].value - d.value));
+                    r = Math.max(-1, -3500 / (this.preferences[0].value - d.value));
                     if (r == -1) {
                         d.pref = Preference.BAD;
+                        d.tag = 5;
                     }
                     return r;
                 case Preference.NEUTRAL:
                 default:
                     d.pref = Preference.NEUTRAL;
+                    d.tag = 6;
                     return 0;
             }
 
@@ -74,20 +80,23 @@ module.exports = class DistancePreferenceManager extends InfiniteValuePreference
             let r;
             switch (this.preferences[low - 1].pref) {
                 case Preference.GOOD:
-                    r = Math.min(1, 2500 / (d.value - this.preferences[low - 1].value));
+                    r = Math.min(1, 3500 / (d.value - this.preferences[low - 1].value));
                     if (r == 1) {
                         d.pref = Preference.GOOD;
+                        d.tag = 7;
                     }
                     return r;
                 case Preference.BAD:
-                    r = Math.max(-1, -2500 / (d.value - this.preferences[low - 1].value));
+                    r = Math.max(-1, -3500 / (d.value - this.preferences[low - 1].value));
                     if (r == -1) {
                         d.pref = Preference.BAD;
+                        d.tag = 8;
                     }
                     return r;
                 case Preference.NEUTRAL:
                 default:
                     d.pref = Preference.NEUTRAL;
+                    d.tag = 9;
                     return 0;
             }
 
@@ -96,18 +105,25 @@ module.exports = class DistancePreferenceManager extends InfiniteValuePreference
         } else {
             let r = ((Preference.toNumber(this.preferences[low].pref) - Preference.toNumber(this.preferences[low - 1].pref)) / 
                 (this.preferences[low].value - this.preferences[low - 1].value) *
-                (d.value - this.preferences[low - 1].value)) + Preference.toNumber(this.preferences[low - 1]);
+                (d.value - this.preferences[low - 1].value)) + Preference.toNumber(this.preferences[low - 1].pref);
             
             switch (r) {
                 case -1:
                     d.pref = Preference.BAD;
+                    d.tag = 10;
                     return r;
                 case 1:
                     d.pref = Preference.GOOD;
+                    d.tag = 11;
                     return r;
                 case 0:
                 default:
+                    if (Math.abs(d.value - 3388.2934924879996) < 1)
+                        console.log("R: " + r);
+                        console.log(JSON.stringify(this.preferences[low - 1]));
+                        console.log(JSON.stringify(this.preferences[low]))
                     d.pref = Preference.NEUTRAL;
+                    d.tag = 12;
                     return r;
             }
         }

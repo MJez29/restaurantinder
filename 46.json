@@ -1,0 +1,200 @@
+[
+    {
+        "categories": [
+            {
+                "alias": "panasian",
+                "title": "Pan Asian",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.25889,
+            "longitude": -82.99722
+        },
+        "display_phone": "+1 519-972-7878",
+        "distance": {
+            "value": 2094.2019551999997,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "budokan-panasian-bistro-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/g0Bqdhl29m-oL0bCsEH_qA/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "350 Cabana Road E",
+            "address2": "Unit 9",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A3",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "350 Cabana Road E",
+                "Unit 9",
+                "Windsor, ON N9G 1A3",
+                "Canada"
+            ]
+        },
+        "name": "Budokan Panasian Bistro",
+        "phone": "+15199727878",
+        "price": {
+            "pref": "bad"
+        },
+        "rating": 3.5,
+        "review_count": 3,
+        "url": "https://www.yelp.com/biz/budokan-panasian-bistro-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": -1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -1,
+        "preferenceRating": -0.6
+    },
+    {
+        "categories": [
+            {
+                "alias": "mideastern",
+                "title": "Middle Eastern",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.24191,
+            "longitude": -83.0154699
+        },
+        "display_phone": "+1 519-250-0800",
+        "distance": {
+            "value": 1080.5368829344,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "ooh-yalla-shawarma-resto-and-cafe-windsor",
+        "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/b2EUn14dsZmH65kpZWVLwQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "1555 Talbot Road",
+            "address2": null,
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9H 2N2",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "1555 Talbot Road",
+                "Windsor, ON N9H 2N2",
+                "Canada"
+            ]
+        },
+        "name": "Ooh Yalla Shawarma Resto & Cafe",
+        "phone": "+15192500800",
+        "price": {
+            "pref": "bad"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/ooh-yalla-shawarma-resto-and-cafe-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": -1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -1,
+        "preferenceRating": -0.6
+    },
+    {
+        "categories": [
+            {
+                "alias": "mideastern",
+                "title": "Middle Eastern",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.25889,
+            "longitude": -82.99722
+        },
+        "display_phone": "",
+        "distance": {
+            "value": 2090.677661534,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "taza-is-fresh-windsor",
+        "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/pw-WtIpk-QawOCGdfolzkQ/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "350 Cabana Rd E",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9G 1A1",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "350 Cabana Rd E",
+                "Windsor, ON N9G 1A1",
+                "Canada"
+            ]
+        },
+        "name": "Taza is Fresh",
+        "phone": "",
+        "price": {
+            "pref": "bad"
+        },
+        "rating": 5,
+        "review_count": 1,
+        "url": "https://www.yelp.com/biz/taza-is-fresh-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": -1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -1,
+        "preferenceRating": -0.6
+    },
+    {
+        "categories": [
+            {
+                "alias": "italian",
+                "title": "Italian",
+                "pref": "bad"
+            }
+        ],
+        "coordinates": {
+            "latitude": 42.2718823999842,
+            "longitude": -83.0120013326723
+        },
+        "display_phone": "+1 519-253-5662",
+        "distance": {
+            "value": 3679.8548844099996,
+            "pref": "good",
+            "tag": 11
+        },
+        "id": "koma-restaurant-windsor",
+        "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/kFurspaZxx0QgzLlhIhoXw/o.jpg",
+        "is_closed": false,
+        "location": {
+            "address1": "3090 Dougall Avenue",
+            "address2": "",
+            "address3": "",
+            "city": "Windsor",
+            "zip_code": "N9E 1S4",
+            "country": "CA",
+            "state": "ON",
+            "display_address": [
+                "3090 Dougall Avenue",
+                "Windsor, ON N9E 1S4",
+                "Canada"
+            ]
+        },
+        "name": "Koma Restaurant",
+        "phone": "+15192535662",
+        "price": {
+            "value": "$$$",
+            "pref": "bad"
+        },
+        "rating": 4,
+        "review_count": 7,
+        "url": "https://www.yelp.com/biz/koma-restaurant-windsor?adjust_creative=IvsWcM41GPOQVYfNss_7Mg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=IvsWcM41GPOQVYfNss_7Mg",
+        "transactions": [],
+        "pricePreferenceRating": -1,
+        "distancePreferenceRating": 1,
+        "categoryPreferenceRating": -1,
+        "preferenceRating": -0.6
+    }
+]

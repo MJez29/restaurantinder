@@ -29,7 +29,6 @@ module.exports.createSuggestion = (lat, lng) => {
     }
 
     let actSugg = new ActiveSuggestion(key, lat, lng);
-    console.log(actSugg);
     //Adds a new suggestion to the list of active suggestions
     activeSuggestions.set(key, actSugg);
 
@@ -58,9 +57,6 @@ module.exports.getInactiveSuggestion = getInactiveSuggestion;
 
 addPreferences = (key, pref) => {
     let sugg = getActiveSuggestion(parseInt(key));
-
-    console.log(typeof key);
-    console.log(sugg);
 
     if (sugg) {
         sugg.addPreferences(pref);

@@ -1,24 +1,37 @@
 let FixedValuePreferenceManager = require("./fixed-value-preference-manager");
 let Preference = require("./preference");
 
+// The weightings of good, neutral and bad categories when assigning ratings
 /**
  * 
- * The weightings of good, neutral and bad categories when assigning ratings
  * 
  * GOOD has the highest weight because, a restaurant may serve multiple types of food, some that the user likes and some that they don't
  * With equal weightings, this restaurant would never be found
  * 
- * BAD has the medium weighting because it should have a slightly bigger impact on the rating than a category that
- * the user may have not even seen yet
- * 
  * @type { number } GOOD_WEIGHT
- * @type { number } NEUTRAL_WEIGHT
- * @type { number } BAD_WEIGHT
  * 
  */
+
 const GOOD_WEIGHT = 3;
+/**
+ * 
+ * @type { number }
+ * @const
+ * 
+ */
 const NEUTRAL_WEIGHT = 1;
+
+/**
+ * 
+ * BAD has a medium weighting because it should have a slightly bigger impact on the rating than a category that
+ * the user may have not even seen yet
+ * 
+ * @type { number }
+ * @const
+ * 
+ */
 const BAD_WEIGHT = 2;
+
 
 
 /**
