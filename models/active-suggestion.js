@@ -193,7 +193,8 @@ module.exports = class {
                 latitude: this.lat,
                 longitude: this.lng,
                 categories: "restaurants",
-                //distance: 25000,
+                //distance: 10000,
+                sort_by: "distance",
                 open_now: true,
                 limit: 50
             }).then((results) => {

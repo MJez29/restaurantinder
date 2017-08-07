@@ -94,15 +94,15 @@ module.exports = class CategoryPreferenceManager extends FixedValuePreferenceMan
             // Weights it and adds it to the total as well as adding/updating the preference for the category to
             // the restaurant object
             if (r < 0) {
-                total += ratings[i] * BAD_WEIGHT;
+                total += r * BAD_WEIGHT;
                 weightTotal += BAD_WEIGHT;
                 categories[i].pref = Preference.BAD;
             } else if (r > 0) {
-                total += ratings[i] * GOOD_WEIGHT;
+                total += r * GOOD_WEIGHT;
                 weightTotal += GOOD_WEIGHT;
                 categories[i].pref = Preference.GOOD;
             } else {
-                total += ratings[i] * NEUTRAL_WEIGHT;
+                total += r * NEUTRAL_WEIGHT;
                 weightTotal += NEUTRAL_WEIGHT;
                 categories[i].pref = Preference.NEUTRAL;
             }

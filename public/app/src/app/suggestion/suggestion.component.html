@@ -11,7 +11,7 @@
 			<div class="category">
 				<h2 class="category-title">Categories</h2>
 				<ul class="pref-list">
-					<li *ngFor="let category of restaurant.getCategories(); let i = index" [ngClass]="['pref', categoryPrefs[i], 'ripple']">
+					<li *ngFor="let category of categories; let i = index" [ngClass]="['pref', category.pref, 'ripple']">
 						<button (click)="categoryClick(BAD, i)" class="pure-button bad">
 							<i class="fa fa-times" aria-hidden="true"></i>
 						</button>
@@ -24,11 +24,11 @@
 			</div>
 			<div class="category">
 				<h2 class="category-title">Price</h2>
-				<div [ngClass]="['pref', pricePref, 'ripple']">
+				<div [ngClass]="['pref', price.pref, 'ripple']">
 					<button (click)="priceClick(BAD)" class="pure-button bad">
 						<i class="fa fa-times" aria-hidden="true"></i>
 					</button>
-					<p>{{ restaurant.getPrice() }}</p>
+					<p>{{ price.value }}</p>
 					<button (click)="priceClick(GOOD)" class="pure-button good">
 						<i class="fa fa-check" aria-hidden="true"></i>
 					</button>
@@ -36,11 +36,11 @@
 			</div>
 			<div class="category">
 				<h2 class="category-title">Distance</h2>
-				<div [ngClass]="['pref', distancePref, 'ripple']">
+				<div [ngClass]="['pref', distance.pref, 'ripple']">
 					<button (click)="distanceClick(BAD)" class="pure-button bad">
 						<i class="fa fa-times" aria-hidden="true"></i>
 					</button>
-					<p>{{ restaurant.getDistance() / 1000 | round: 1 }} km</p>
+					<p>{{ distance.value / 1000 | round: 1 }} km</p>
 					<button (click)="distanceClick(GOOD)" class="pure-button good">
 						<i class="fa fa-check" aria-hidden="true"></i>
 					</button>

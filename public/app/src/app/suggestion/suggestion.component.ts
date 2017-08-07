@@ -20,9 +20,19 @@ export class SuggestionComponent implements OnInit {
 
 	public loading: boolean;
 
-	private pricePref: string;
-	private distancePref: string;
-	private categoryPrefs: string[];
+	public price: {
+		value: string,
+		pref: string
+	};
+	public distance: {
+		value: number,
+		pref: string
+	};
+	public categories: {
+		title: string,
+		alias: string,
+		pref: string
+	}[];
 
 	private timer;
 
@@ -42,13 +52,12 @@ export class SuggestionComponent implements OnInit {
 			//Done loading
 			this.loading = false;
 
-			this.pricePref = this.NEUTRAL;
-			this.distancePref = this.NEUTRAL;
-			this.categoryPrefs = [];
-			let n = res.getNumCategories();
-			for (let i = 0; i < n; i++) {
-				this.categoryPrefs.push(this.NEUTRAL);
-			}
+			this.categories = res.getCategories();
+
+			this.price = res.getPrice();
+
+			this.distance = res.getDistance();
+
 
 			this.timer = setTimeout(() => { this.nextSuggestion() }, SUGGESTION_DURATION);
 		}, (err) => {
@@ -64,29 +73,29 @@ export class SuggestionComponent implements OnInit {
 	//Registers a button click for the shown price
 	//The buttons work as toggles
 	priceClick(click: string) : void {
-		if (this.pricePref !== click) {
-			this.pricePref = click;
+		if (this.price.pref !== click) {
+			this.price.pref = click;
 		}
 		else {
-			this.pricePref = this.NEUTRAL;
+			this.price.pref = this.NEUTRAL;
 		}
 	}
 
 	distanceClick(click: string) : void {
-		if (this.distancePref !== click) {
-			this.distancePref = click;
+		if (this.distance.pref !== click) {
+			this.distance.pref = click;
 		}
 		else {
-			this.distancePref = this.NEUTRAL;
+			this.distance.pref = this.NEUTRAL;
 		}
 	}
 
 	categoryClick(click: string, index: number) : void {
-		if (this.categoryPrefs[index] !== click) {
-			this.categoryPrefs[index] = click;
+		if (this.categories[index].pref !== click) {
+			this.categories[index].pref = click;
 		}
 		else {
-			this.categoryPrefs[index] = this.NEUTRAL;
+			this.categories[index].pref = this.NEUTRAL;
 		}
 	}
 
@@ -97,26 +106,16 @@ export class SuggestionComponent implements OnInit {
 
 		//Sends the preferences gathered to the server 
 		this.restaurantService.sendPreferences({
-			price: {
-				value: this.restaurant.getPrice(),
-				pref: this.pricePref
-			},
-			distance: {
-				value: this.restaurant.getDistance(),
-				pref: this.distancePref
-			},
+			price: this.price,
+			distance: this.distance,
 			categories: (() => {
 				//Creates an array of the category preferences
 
 				let arr: { value: string, pref: string }[] = [];
-
-				let cats = this.restaurant.getCategories();
-
-				let n = this.restaurant.getNumCategories();
-				for (let i = 0; i < n; i++) {
+				for (let i = 0; i < this.categories.length; i++) {
 					arr.push({
-						value: cats[i].title,
-						pref: this.categoryPrefs[i]
+						value: this.categories[i].title,
+						pref: this.categories[i].pref
 					});
 				}
 

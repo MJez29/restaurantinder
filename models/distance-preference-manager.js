@@ -74,13 +74,13 @@ module.exports = class DistancePreferenceManager extends InfiniteValuePreference
             let r;
             switch (this.preferences[low - 1].pref) {
                 case Preference.GOOD:
-                    r = Math.min(1, 2500 / (v - this.preferences[low - 1].value));
+                    r = Math.min(1, 2500 / (d.value - this.preferences[low - 1].value));
                     if (r == 1) {
                         d.pref = Preference.GOOD;
                     }
                     return r;
                 case Preference.BAD:
-                    r = Math.max(-1, -2500 / (v - this.preferences[low - 1].value));
+                    r = Math.max(-1, -2500 / (d.value - this.preferences[low - 1].value));
                     if (r == -1) {
                         d.pref = Preference.BAD;
                     }
@@ -96,7 +96,7 @@ module.exports = class DistancePreferenceManager extends InfiniteValuePreference
         } else {
             let r = ((Preference.toNumber(this.preferences[low].pref) - Preference.toNumber(this.preferences[low - 1].pref)) / 
                 (this.preferences[low].value - this.preferences[low - 1].value) *
-                (v - this.preferences[low - 1].value)) + Preference.toNumber(this.preferences[low - 1]);
+                (d.value - this.preferences[low - 1].value)) + Preference.toNumber(this.preferences[low - 1]);
             
             switch (r) {
                 case -1:

@@ -1,10 +1,9 @@
 export class Restaurant {
-	private categories: [
-		{
-			title: string,
-			alias: string
-		}
-	];
+	private categories: {
+		title: string,
+		alias: string,
+		pref: string
+	} [];
 
 	private coordinates: {
 		latitude: number,
@@ -13,7 +12,10 @@ export class Restaurant {
 
 	private display_phone: string;
 
-	private distance: number;
+	private distance: {
+		value: number,
+		pref: string
+	};
 
 	private id: string;
 
@@ -36,7 +38,10 @@ export class Restaurant {
 
 	private phone: string;
 
-	private price: string;
+	private price: {
+		value: string,
+		pref: string
+	};
 
 	private rating: number;
 
