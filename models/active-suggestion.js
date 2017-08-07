@@ -122,8 +122,8 @@ module.exports = class {
      */
     rankRestaurants() {
 
-        if (this.timesRanked == 0)
-            this.capture();
+        // if (this.timesRanked == 0)
+        //     this.capture();
 
         for (let i = 0; i < this.restaurants.length; ++i) {
             let priceRating = this.restaurants[i].pricePreferenceRating = this.pricePreferenceManager.rate(this.restaurants[i].price);
@@ -144,7 +144,7 @@ module.exports = class {
             this.restaurants[j + 1] = x;
         }
         this.timesRanked++;
-        this.capture();
+        // this.capture();
         console.log(this.timesRanked + ": " + JSON.stringify(this.distancePreferenceManager.preferences, null, 4));
     }
 
