@@ -55,11 +55,15 @@ getInactiveSuggestion = (key) => {
 
 module.exports.getInactiveSuggestion = getInactiveSuggestion;
 
+// Returns true if adding suggestion was successful
 addPreferences = (key, pref) => {
     let sugg = getActiveSuggestion(parseInt(key));
 
     if (sugg) {
         sugg.addPreferences(pref);
+        return true;
+    } else {
+        return false;
     }
 }
 

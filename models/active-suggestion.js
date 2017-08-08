@@ -8,6 +8,7 @@ let fs = require("fs")
 const yelpID = "IvsWcM41GPOQVYfNss_7Mg";
 const yelpSecret = "JT1E6PJAya8CQQz2akRD8tEgagnTjmjlthiQFPqHlI3AlNBsmE2fTFcovlSSX8cP";
 let yelpClient;
+let ServerStatus = require("./server-status");
 
 const zomatoID = "7f517335abf7ab2f1dd537019eb5f8a2";
 
@@ -237,18 +238,19 @@ module.exports = class {
                     this.restaurants[i] = new Restaurant(this.restaurants[i]);
                 }
 
-                res.json(this.restaurants[0]);
+                res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
             }).catch((err) => {
                 console.log(err);
+                res.json({ status: ServerStatus.YELP_API_REQUEST_ERROR });
             })
         }
         else if (this.numSuggestions < 4) {
             this.shuffle(this.restaurants);
-            res.json(this.restaurants[0]);
+            res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
         }
         //If less than 10 suggestions have been made
         else if (this.numSuggestions < 100) {
-            res.json(this.restaurants[0]);
+            res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
         }
         //TODO: 2nd yelp query
     }

@@ -7,6 +7,7 @@ let path = require("path");
 let googleMapsClient = require("@google/maps").createClient({
     key: "AIzaSyBk9aL8r8Ss9hRDYI8MTR5u9eRPZRBgpdE"
 });
+let ServerStatus = require("./models/server-status");
 
 let app = express();
 
@@ -65,24 +66,31 @@ app.post("/go", (req, res, next) => {
         let key = se.createSuggestion(req.body.lat, req.body.lng);
 
         console.log(key);
-        res.send(JSON.stringify( {key : key} ));
+        res.send(JSON.stringify( {key : key, status: ServerStatus.OK } ));
     }
     //Google Maps Geocoding API key: AIzaSyBk9aL8r8Ss9hRDYI8MTR5u9eRPZRBgpdE
 });
 
 
 app.get("/go/:key", (req, res, next) => {
-    let sugg = se.getSuggestion(req.params.key).suggest(req, res, next);
+    let sugg = se.getSuggestion(req.params.key);
 
     //If valid suggestion
     if (sugg) {
-        res.send(sugg);
+
+        // Sends appropriate response
+        sugg.suggest(req, res, next);
+    } else {
+        res.json({ status: ServerStatus.INVALID_KEY });
     }
 });
 
 app.post("/go/:key", (req, res, next) => {
-    se.addPreferences(req.params.key, req.body);
-    res.send({ status: "OK" });
+    if (se.addPreferences(req.params.key, req.body)) {
+        res.json({ status: "OK" });
+    } else {
+        res.json({ status: ServerStatus.INVALID_ACTIVE_KEY });
+    }
 })
 
 // Converts an address into latitude/longitude
@@ -97,12 +105,14 @@ app.get("/geocode", (req, res, next) => {
             // If something went wrong
             if (err || resp.json.status !== "OK") {
                 console.log(err);
-                // TODO: Send status
+                res.json({
+                    status: ServerStatus.GOOGLE_MAPS_GEOCODING_API_ERROR
+                })
 
             // If succesful geocode
             } else {
                 res.json({
-                    //TODO: Send status
+                    status: ServerStatus.OK,
                     lat: resp.json.results[0].geometry.location.lat, 
                     lng: resp.json.results[0].geometry.location.lng
                 });

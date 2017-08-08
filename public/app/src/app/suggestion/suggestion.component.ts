@@ -4,7 +4,7 @@ import { RestaurantService } from "../restaurant.service";
 import { Router } from "@angular/router";
 
 //After 10s the app moves on to the next suggestion
-const SUGGESTION_DURATION = 100 * 1000;			//TODO: SET THIS BACK TO 10
+const SUGGESTION_DURATION = 10 * 1000;			//TODO: SET THIS BACK TO 10
 
 @Component({
 	selector: 'app-suggestion',

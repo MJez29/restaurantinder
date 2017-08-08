@@ -1,0 +1,75 @@
+/*
+
+Styles pertaining to the footer
+
+*/
+
+#footer {
+    background-color: #F60025;
+    padding: 0;
+    color: white;
+}
+
+#footer .pure-menu {
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+#footer .pure-menu-header {
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0 0 15px 0;
+    color: #FFF;
+    font-weight: bold;
+}
+
+#footer .pure-menu-list {
+    padding: 0;
+    margin: 0;
+}
+
+#footer .pure-menu-link {
+    padding: 0;
+    margin: 5px 0;
+    color: #F9A602;
+    font-weight: bold;
+}
+
+#footer .pure-menu-link:hover {
+    background-color: initial;
+    text-decoration: underline;
+}
+
+#footer-logo {
+    padding: 0;
+    margin: 0 auto;
+    overflow-x: hidden;
+    height: auto;
+        width: 100vw;
+        margin-top: 100px;
+}
+
+/* @media screen and (min-width: 35.5em) {
+    #footer-logo {
+        width: calc(100vw * 7 / 8);
+    }
+} */
+
+@media screen and (min-width: 48em) {
+    #footer-logo {
+        width: calc(100vw * 5 / 6);
+        margin-top: 150px;
+    }
+}
+
+/* @media screen and (min-width: 64em) {
+    #footer-logo {
+        width: calc(100vw * 4 / 5);
+    }
+} */
+
+@media screen {
+    #footer-logo {
+        width: calc(100vw * 3 / 4);
+    }
+}

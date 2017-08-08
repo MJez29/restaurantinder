@@ -101,10 +101,14 @@ export class RestaurantService {
 		this.http.get(GET_GEOCODE_URL, reqOpts)
 			.map(this.extractData)
 			.subscribe((data) => {
-				console.log(data);
-				this.lat = data.lat;
-				this.lng = data.lng;
-				success(data.lat, data.lng);
+				if (data.status === ServerStatus.OK) {
+					console.log(data);
+					this.lat = data.lat;
+					this.lng = data.lng;
+					success(data.lat, data.lng);
+				} else {
+					error(data.status);
+				}
 			}, (err) => {
 				error(err);
 			});
@@ -119,13 +123,13 @@ export class RestaurantService {
 			.subscribe((data) => {
 				console.log("DATA FROM GET REQUEST:\n" + JSON.stringify(data, null, 4));
 				// TODO: Check status
-				if (data.key != -1) {
+				if (data.status === "OK") {
 					this.key = data.key;
 
 					success();
 				}
 				else {
-					error("");
+					error(data.status);
 				}
 			}, (err) => {
 				console.log(err);
@@ -160,8 +164,10 @@ export class RestaurantService {
 		this.http.post(POST_FEEDBACK_URL + this.key, prefs)
 			.map(this.extractData)
 			.subscribe((data) => {
-				if (data.status === "OK") {
+				if (data.status === ServerStatus.OK) {
 					success();
+				} else {
+					console.log(data.status);
 				}
 			}, (err) => {
 
@@ -172,38 +178,17 @@ export class RestaurantService {
 		return this.cur;
 	}
 
-	getFirstRestaurant(success: (restaurant: Restaurant) => void, error: (any) => void): void {
-
-		this.http.post(`192.168.2.16:3000/go`, { lat: this.lat, lng: this.lng }, REQUEST_OPTIONS)
-			.map(this.extractData)
-			.subscribe(
-				() => {
-					this.http.get(`192.168.2.16:3000/go/{this.id}`)
-						.map((res: Response) => {
-							return res.json() || {};
-						})
-						.subscribe(success, error);
-				},
-				(err) => {
-					console.log(err);
-				}
-			)
-	}
-	
-	getNewRestaurantWithFeedback(prefs: Preferences, success: (restaurant: Restaurant) => void, error: (any) => void): void {
-		this.http.get(`192.168.2.16:3000/go/{this.id}`)
-			.map((res: Response) => {
-				return res.json().data || {};
-			})
-	}
-
 	getNewRestaurant(success: (restaurant: Restaurant) => void, error: (any) => void): void {
 		this.http.get(GET_RESTAURANT_URL + this.key)
 			.map(this.extractData)
-			.subscribe((restaurantData) => {
-				console.log(JSON.stringify(restaurantData));
-				this.cur = new Restaurant(restaurantData);
-				success(this.cur);
+			.subscribe((data) => {
+				if (data.status === ServerStatus.OK) {
+					console.log(JSON.stringify(data, null, 4));
+					this.cur = new Restaurant(data.suggestion);
+					success(this.cur);
+				} else {
+					error(data.status);
+				}
 			}, error);
 	}
 
