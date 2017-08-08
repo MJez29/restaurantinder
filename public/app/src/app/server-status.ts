@@ -3,7 +3,7 @@
  * When the server responds to an API call, it will always respond with a JSON object
  * This object will always have a method called "status" to signal the state of the response
  * 
- * MAKE SURE TO UPDATE BOTH /models/server-status.js (this) and /public/app/src/server-status.ts
+ * MAKE SURE TO UPDATE BOTH /models/server-status.js and /public/app/src/server-status.ts (this)
  * Version number is equal to the number of statuses
  * @version 5
  * 
@@ -18,7 +18,7 @@ export class ServerStatus {
      * @type { string }
      * 
      */
-    OK: "OK",
+    public static readonly OK : string = "OK"
 
     /**
      * 
@@ -28,7 +28,7 @@ export class ServerStatus {
      * @type { string }
      * 
      */
-    INVALID_KEY: "INVALID_KEY",
+    public static readonly INVALID_KEY : string = "INVALID_KEY";
 
     /**
      * 
@@ -38,7 +38,7 @@ export class ServerStatus {
      * @type { string }
      * 
      */
-    YELP_API_REQUEST_ERROR: "YELP_API_REQUEST_ERROR",
+    public static readonly YELP_API_REQUEST_ERROR : string = "YELP_API_REQUEST_ERROR";
 
     /**
      * 
@@ -48,7 +48,7 @@ export class ServerStatus {
      * @const
      * @type { string }
      */
-    INVALID_ACTIVE_KEY: "INVALID_ACTIVE_KEY",
+    public static readonly INVALID_ACTIVE_KEY : string = "INVALID_ACTIVE_KEY";
 
     /**
      * 
@@ -59,6 +59,6 @@ export class ServerStatus {
      * @type { string }
      * 
      */
-    GOOGLE_MAPS_GEOCODING_API_ERROR: "GOOGLE_MAPS_GEOCODING_API_ERROR",
+    public static readonly GOOGLE_MAPS_GEOCODING_API_ERROR : string = "GOOGLE_MAPS_GEOCODING_API_ERROR";
 
 }
