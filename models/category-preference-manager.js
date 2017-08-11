@@ -53,45 +53,66 @@ module.exports = class CategoryPreferenceManager extends FixedValuePreferenceMan
     }
 
     /**
-     * 
+     * Returns true if it added a good preference
      * @description Adds multiple preferences
      * @param { { value: string, pref: string } [] } prefs - The preferences to be added
-     * @returns { void }
+     * @returns { boolean }
      * 
      */
     addPrefs(prefs) {
+        let b = false;
         for (let i = 0; i < prefs.length; ++i) {
-            this.addPref(prefs[i]);
+            if (this.addPref(prefs[i])) {
+                b = true;
+            }
         }
+        return b;
     }
 
     /**
      * 
+     * Returns the preference it added
+     * 
      * @description (PROTECTED) Adds a preference
      * @param { {value: string, pref: string } } pref - The preference to be added
-     * @return { void }
+     * @return { string }
      * 
      */
     addPref(pref) {
         switch (pref.pref) {
             case Preference.BAD:
                 this.addBadPref(pref.value);
-                break;
+                return false;
             case Preference.GOOD:
                 this.addGoodPref(pref.value);
-                break;
+                return true;
             case Preference.NEUTRAL:
                 this.addNeutralPref(pref.value);
-                break;
             default:
-                break;
+                return false;
         }
+    }
+
+    /**
+     * 
+     * Returns true if the array of categories contains at least 1 good category
+     * 
+     * @param { { title: string, alias: string } } categories
+     * @return { boolean }
+     */
+    containsGoodCategory(categories) {
+        for (let i = 0; i < categories.length; ++i) {
+            if (this.good.includes(categories[i].alias))
+                return true;
+        }
+
+        return false;
     }
 
     /**
      * Gives a weighted rating from -1 to 1 based on the categories passed and user preferences.
      * 
-     * @param { Category[] } categories
+     * @param { { title: string, alias: string } } categories
      * @return { number }
      */
     rateAll(categories) {
@@ -102,7 +123,7 @@ module.exports = class CategoryPreferenceManager extends FixedValuePreferenceMan
         for (let i = 0; i < categories.length; ++i) {
 
             // Rates a category
-            let r = this.rate(categories[i].title);
+            let r = this.rate(categories[i].alias);
 
             // Weights it and adds it to the total as well as adding/updating the preference for the category to
             // the restaurant object
@@ -143,6 +164,21 @@ module.exports = class CategoryPreferenceManager extends FixedValuePreferenceMan
         } else {
             return 0;
         }
+    }
+
+    /**
+     * 
+     * Returns 
+     */
+    toYelpAPICategoriesQuery() {
+        let s = "";
+
+        for (let i = 0; i < this.good.length; ++i) {
+            s += `${this.good[i]},`;
+        }
+
+        // Must remove extra comma at the end of string
+        return s.substr(0, s.length - 1);
     }
 
 }

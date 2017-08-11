@@ -117,11 +117,6 @@ module.exports = class DistancePreferenceManager extends InfiniteValuePreference
                     d.tag = 11;
                     return r;
                 case 0:
-                default:
-                    if (Math.abs(d.value - 3388.2934924879996) < 1)
-                        console.log("R: " + r);
-                        console.log(JSON.stringify(this.preferences[low - 1]));
-                        console.log(JSON.stringify(this.preferences[low]))
                     d.pref = Preference.NEUTRAL;
                     d.tag = 12;
                     return r;

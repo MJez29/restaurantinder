@@ -3,6 +3,7 @@ import { Restaurant } from "./restaurant";
 import { Preferences } from "./preferences";
 import { Router } from "@angular/router";
 import { Http, Response, Headers, RequestOptions, URLSearchParams, QueryEncoder } from "@angular/http";
+import { ServerStatus } from "./server-status";
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -10,10 +11,11 @@ import 'rxjs/add/operator/map';
 
 const REQUEST_OPTIONS = new RequestOptions({ headers: new Headers({ 'Content-Type': 'application/json' }) });
 
-const POST_LOCATION_URL = "http://192.168.2.16:3000/go/";//"http://localhost:3000/go";
-const GET_GEOCODE_URL = "http://192.168.2.16:3000/geocode";
-const GET_RESTAURANT_URL = "http://192.168.2.16:3000/go/";//"http://localhost:3000/go/";
-const POST_FEEDBACK_URL = "http://192.168.2.16:3000/go/";//"http://localhost:3000/go/";
+const BASE = "http://192.168.2.7:3000";
+const POST_LOCATION_URL = BASE + "/go/";//"http://localhost:3000/go";
+const GET_GEOCODE_URL = BASE + "/geocode";
+const GET_RESTAURANT_URL = BASE + "/go/";//"http://localhost:3000/go/";
+const POST_FEEDBACK_URL = BASE + "/go/";//"http://localhost:3000/go/";
 
 @Injectable()
 export class RestaurantService {
@@ -157,7 +159,7 @@ export class RestaurantService {
 			pref: string			//"GOOD", "BAD", "NEUTRAL"
 		},
 		categories: {
-			value: string,			//The category title
+			value: string,			//The category alias
 			pref: string			//"GOOD", "BAD", "NEUTRAL"
 		}[]
 	}, success: () => void) {

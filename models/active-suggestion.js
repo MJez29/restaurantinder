@@ -4,6 +4,7 @@ let DistancePreferenceManager = require("./distance-preference-manager");
 let CategoryPreferenceManager = require("./category-preference-manager");
 let Restaurant = require("./restaurant");
 let fs = require("fs")
+let LatLng = require("./lat-lng");
 
 const yelpID = "IvsWcM41GPOQVYfNss_7Mg";
 const yelpSecret = "JT1E6PJAya8CQQz2akRD8tEgagnTjmjlthiQFPqHlI3AlNBsmE2fTFcovlSSX8cP";
@@ -23,6 +24,16 @@ const DEFAULT_PRICES = ["$", "$$", "$$$", "$$$$"];
 const GOOD = "GOOD";
 const NEUTRAL = "NEUTRAL";
 const BAD = "BAD";
+
+/**
+ * @param { number } value - The number to be clamped
+ * @param { number } max - The maximum value of value
+ * @param { number } min - The minimum value of value
+ * @return { number }
+ */
+Math.clamp = (value, min, max) => {
+    return Math.min(Math.max(value, min), max);
+}
 
 // All 3 weights must add up to 1
 /**
@@ -66,17 +77,67 @@ const TIME_ACTIVE = 5 * 60 * 1000;
 module.exports = class {
 
     constructor(key, lat, lng) {
-        //The key of the suggestion /go/:key
-        this.key = key;             //Integer
+        /**
+         * 
+         * The key of the suggestion /go/:key
+         * 
+         * @type { number }
+         * 
+         */
+        this.key = key;
 
         //Location of the user
-        this.lat = lat;             //Latitude
-        this.lng = lng;             //Longitude
+        /**
+         * 
+         * The latitude of the user
+         * 
+         * @type { number }
+         * 
+         */
+        this.lat = lat;
+
+        /**
+         * 
+         * The longitude of the user
+         * 
+         * @type { number }
+         * 
+         */
+        this.lng = lng;
 
         //The number of suggestions given
         this.numSuggestions = 0;
 
         this.timesRanked = 0;
+
+        /**
+         * 
+         * If the server should make an API call to Yelp to get the first round of restaurants.
+         * @desc Moo
+         * 
+         * @type { boolean }
+         * 
+         */
+        this.makeFirstAPICall = true;
+
+        /**
+         * 
+         * If the server should make an API call to Yelp to get the 2nd round of restaurants.
+         * 
+         * @type { bolean }
+         * 
+         */
+        this.makeSecondAPICall = false;
+
+        // The restaurants that have already been shown to the user
+        this.alreadyShown = [];
+
+        // The engine will continue to return random restaurants until it finds one with a category that the user likes
+        this.foundGoodCategory = false;
+
+        // True when the user has passed on all the restaurants with a category they like
+        // Makes another Yelp API call with user preferences
+        this.getMoreRestaurants = false;
 
         this.pricePreferenceManager = new PricePreferenceManager();
         this.distancePreferenceManager = new DistancePreferenceManager();
@@ -105,11 +166,17 @@ module.exports = class {
     addPreferences(prefs) {
         if (this.timesRanked == 0)
             console.log(this.timesRanked + ": " + JSON.stringify(this.distancePreferenceManager.preferences, null, 4));
-        this.restaurants.shift();
+        this.alreadyShown.push(this.restaurants.shift());
         this.pricePreferenceManager.addPref(prefs.price);
         this.distancePreferenceManager.addPref(prefs.distance);
-        this.categoryPreferenceManager.addPrefs(prefs.categories);
-        this.rankRestaurants();
+
+        // If it adds a good preference
+        if (this.categoryPreferenceManager.addPrefs(prefs.categories) || this.foundGoodCategory) {
+            this.foundGoodCategory = true;
+            this.rankRestaurants();
+        } else {
+            this.rankRestaurants(1);
+        }
     }
 
     /**
@@ -117,11 +184,16 @@ module.exports = class {
      * Assigns each restaurant a rating based on user preferences and then sorts the array.
      * Sorted from highest rated to lowest rated
      * 
+     * Skew can be added to randomize the rankings
+     * 
      * @private
+     * @param { number } skew - [0, 2]
      * @return { void }
      * 
      */
-    rankRestaurants() {
+    rankRestaurants(skew = 0) {
+
+        skew = Math.min(skew, 2);
 
         // if (this.timesRanked == 0)
         //     this.capture();
@@ -132,7 +204,7 @@ module.exports = class {
             let categoryRating = this.restaurants[i].categoryPreferenceRating = this.categoryPreferenceManager.rateAll(this.restaurants[i].categories);
 
             // Overall rating is the average of the 3 individual ratings
-            this.restaurants[i].preferenceRating = priceRating * PRICE_WEIGHT + distanceRating * DISTANCE_WEIGHT + categoryRating * CATEGORY_WEIGHT;
+            this.restaurants[i].preferenceRating = Math.clamp(priceRating * PRICE_WEIGHT + distanceRating * DISTANCE_WEIGHT + categoryRating * CATEGORY_WEIGHT + (Math.random() - 0.5) * skew, -1, 1);
         }
 
         // Sorts using insertion sort
@@ -144,9 +216,15 @@ module.exports = class {
             }
             this.restaurants[j + 1] = x;
         }
+
+        if (this.foundGoodCategory && !this.categoryPreferenceManager.containsGoodCategory(this.restaurants[0].categories)) {
+            this.makeSecondAPICall = true;
+            console.log("NEED MORE RESTAURANTD BECAUSE THIS SHIT IS UNWORTHY: ");
+            console.log(JSON.stringify(this.restaurants[0], null, 4));
+        }
+
         this.timesRanked++;
         // this.capture();
-        console.log(this.timesRanked + ": " + JSON.stringify(this.distancePreferenceManager.preferences, null, 4));
     }
 
     capture() {
@@ -216,14 +294,16 @@ module.exports = class {
     suggest(req, res, next) {
 
         //If the engine hasn't suggested anything yet
-        if (this.numSuggestions++ == 0) {
+        if (this.makeFirstAPICall) {
 
-            //Gets a list of suggestions from yelp
+            this.makeFirstAPICall = false;
+
+            //Gets a list of suggestions from Yelp
             yelpClient.search({
                 latitude: this.lat,
                 longitude: this.lng,
                 categories: "restaurants",
-                distance: 25000,
+                distance: 40000,
                 sort_by: "distance",
                 limit: 50
             }).then((results) => {
@@ -244,15 +324,30 @@ module.exports = class {
                 res.json({ status: ServerStatus.YELP_API_REQUEST_ERROR });
             })
         }
-        else if (this.numSuggestions < 4) {
-            this.shuffle(this.restaurants);
+        else if (this.makeSecondAPICall) {
+            this.makeSecondAPICall = true;
+            for (let i = 0, ang = 0; i < 6; ++i, ang += Math.PI / 3) {
+                let pos = LatLng.move(this.lat, this.lng, /*RADIUS*/, ang);
+                yelpClient.search({
+                    latitude: pos.lat,
+                    longitude: pos.lng,
+                    categories: this.categoryPreferenceManager.toYelpAPICategoriesQuery,
+                    sort_by: "distance",
+                    limit: 50
+                })
+            }
+        } else {
             res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
         }
-        //If less than 10 suggestions have been made
-        else if (this.numSuggestions < 100) {
-            res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
-        }
-        //TODO: 2nd yelp query
+        // else if (this.numSuggestions < 4) {
+        //     this.shuffle(this.restaurants);
+        //     res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
+        // }
+        // //If less than 10 suggestions have been made
+        // else if (this.numSuggestions < 100) {
+        //     res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
+        // }
+        // //TODO: 2nd yelp query
     }
 
     shuffle(a) {

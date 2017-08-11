@@ -114,7 +114,7 @@ export class SuggestionComponent implements OnInit {
 				let arr: { value: string, pref: string }[] = [];
 				for (let i = 0; i < this.categories.length; i++) {
 					arr.push({
-						value: this.categories[i].title,
+						value: this.categories[i].alias,
 						pref: this.categories[i].pref
 					});
 				}
