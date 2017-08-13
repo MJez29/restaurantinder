@@ -5,6 +5,8 @@ let CategoryPreferenceManager = require("./category-preference-manager");
 let Restaurant = require("./restaurant");
 let fs = require("fs")
 let LatLng = require("./lat-lng");
+let Preference = require("./preference");
+const SuggestionAction = require("./suggestion-action");
 
 const yelpID = "IvsWcM41GPOQVYfNss_7Mg";
 const yelpSecret = "JT1E6PJAya8CQQz2akRD8tEgagnTjmjlthiQFPqHlI3AlNBsmE2fTFcovlSSX8cP";
@@ -24,6 +26,8 @@ const DEFAULT_PRICES = ["$", "$$", "$$$", "$$$$"];
 const GOOD = "GOOD";
 const NEUTRAL = "NEUTRAL";
 const BAD = "BAD";
+
+const TOTAL_API_CALLS = 7;
 
 /**
  * @param { number } value - The number to be clamped
@@ -65,6 +69,14 @@ const PRICE_WEIGHT = 0.2;
  * 
  */
 const DISTANCE_WEIGHT = 0.2;
+
+const FinalWeights = {
+    ALREADY_SHOWN: 0.05,
+    CATEGORIES: 0.55,
+    PRICE: 0.1,
+    DISTANCE: 0.1,
+    RATING: 0.2
+}
 
 //The amount of time that a suggestion is active for in ms
 const TIME_ACTIVE = 5 * 60 * 1000;
@@ -112,28 +124,48 @@ module.exports = class {
 
         /**
          * 
-         * If the server should make an API call to Yelp to get the first round of restaurants.
-         * @desc Moo
+         * The current action to be performed by the suggestion engine
+         * 
+         * @type { number }
+         * 
+         */
+        this.suggestionAction = SuggestionAction.MAKE_FIRST_API_CALL;
+
+        /**
+         * 
+         * (TOTAL_API_CALLS - 1) Yelp requests are made when this.makeSecondAPICall == true.
+         * This value is true if at least one of the calls was succesfull
          * 
          * @type { boolean }
          * 
          */
-        this.makeFirstAPICall = true;
+        this.successfulSecondAPICall = false;
 
         /**
          * 
-         * If the server should make an API call to Yelp to get the 2nd round of restaurants.
+         * The number of Yelp API calls the server has made for this app
          * 
-         * @type { bolean }
+         * @type { number }
          * 
          */
-        this.makeSecondAPICall = false;
+        this.numAPICalls = 0;
+
+        /**
+         * 
+         * A good suggestion is a suggestion containing at least one good category
+         * 
+         * @type { number }
+         * 
+         */
+        this.goodSuggestionsMade = 0;
 
         // The restaurants that have already been shown to the user
         this.alreadyShown = [];
 
         // The engine will continue to return random restaurants until it finds one with a category that the user likes
         this.foundGoodCategory = false;
+
+        this.madeSecondAPICall = false;
 
         // True when the user has passed on all the restaurants with a category they like
         // Makes another Yelp API call with user preferences
@@ -207,6 +239,38 @@ module.exports = class {
             this.restaurants[i].preferenceRating = Math.clamp(priceRating * PRICE_WEIGHT + distanceRating * DISTANCE_WEIGHT + categoryRating * CATEGORY_WEIGHT + (Math.random() - 0.5) * skew, -1, 1);
         }
 
+        this.sort();
+
+        // If found a food type the user likes
+        if (this.foundGoodCategory) {
+
+            // If there are still restaurants that serve the food type the user wants
+            // and the user hasn't viewed too many restaurants
+            if (this.categoryPreferenceManager.containsGoodCategory(this.restaurants[0].categories) && this.goodSuggestionsMade < 15) {
+
+                // Keep on suggesting
+                this.suggestionAction = SuggestionAction.MAKE_SUGGESTION;
+                this.goodSuggestionsMade++;
+
+            // If the server hasn't made a 2nd API call yet
+            } else if (!this.madeSecondAPICall) {
+                // Get more restaurants
+                this.suggestionAction = SuggestionAction.MAKE_SECOND_API_CALL;
+
+            // If there's nothing else that the server can do
+            } else {
+
+                // Make one final suggestion
+                this.suggestionAction = SuggestionAction.MAKE_FINAL_SUGGESTION;
+            }
+        }
+
+        this.timesRanked++;
+        // this.capture();
+    }
+
+    // Sorts the restaurants based on their preferenceRating field
+    sort() {
         // Sorts using insertion sort
         for (let i = 1; i < this.restaurants.length; ++i) {
             let x = this.restaurants[i];
@@ -216,15 +280,6 @@ module.exports = class {
             }
             this.restaurants[j + 1] = x;
         }
-
-        if (this.foundGoodCategory && !this.categoryPreferenceManager.containsGoodCategory(this.restaurants[0].categories)) {
-            this.makeSecondAPICall = true;
-            console.log("NEED MORE RESTAURANTD BECAUSE THIS SHIT IS UNWORTHY: ");
-            console.log(JSON.stringify(this.restaurants[0], null, 4));
-        }
-
-        this.timesRanked++;
-        // this.capture();
     }
 
     capture() {
@@ -235,41 +290,6 @@ module.exports = class {
         });
     }
 
-    //Returns a suggestion in the form of a Yelp Business object
-    // {
-    //     categories: [
-    //         {
-    //             title,
-    //             alias
-    //         }
-    //     ],
-    //     coordinates: {
-    //         latitude,
-    //         longitude
-    //     },
-    //     display_phone,
-    //     distance,
-    //     id,
-    //     image_url,
-    //     is_closed,
-    //     location: {
-    //         address1,
-    //         address2,
-    //         address3,
-    //         city,
-    //         country,
-    //         display_address: [],
-    //         state,
-    //         zip_code
-    //     },
-    //     name,
-    //     phone,
-    //     price,
-    //     rating,
-    //     review_count,
-    //     url,
-    //     transactions: []
-    // }
     /**
      * 
      * @typedef Restaurant
@@ -293,69 +313,187 @@ module.exports = class {
      */
     suggest(req, res, next) {
 
-        //If the engine hasn't suggested anything yet
-        if (this.makeFirstAPICall) {
+        switch(this.suggestionAction) {
+            case SuggestionAction.MAKE_FIRST_API_CALL:
+                this.suggestionAction = SuggestionAction.MAKE_SUGGESTION;
 
-            this.makeFirstAPICall = false;
-
-            //Gets a list of suggestions from Yelp
-            yelpClient.search({
-                latitude: this.lat,
-                longitude: this.lng,
-                categories: "restaurants",
-                distance: 40000,
-                sort_by: "distance",
-                limit: 50
-            }).then((results) => {
-                /**
-                 * @type { Restaurant[] }
-                 */
-                this.restaurants = results.jsonBody.businesses;
-                console.log("RESTAURANTS: " + this.restaurants.length);
-
-                // Converts the data in Restaurant objects
-                for (let i = 0; i < this.restaurants.length; ++i) {
-                    this.restaurants[i] = new Restaurant(this.restaurants[i]);
-                }
-
-                res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
-            }).catch((err) => {
-                console.log(err);
-                res.json({ status: ServerStatus.YELP_API_REQUEST_ERROR });
-            })
-        }
-        else if (this.makeSecondAPICall) {
-            this.makeSecondAPICall = true;
-            for (let i = 0, ang = 0; i < 6; ++i, ang += Math.PI / 3) {
-                let pos = LatLng.move(this.lat, this.lng, /*RADIUS*/, ang);
+                //Gets a list of suggestions from Yelp
                 yelpClient.search({
-                    latitude: pos.lat,
-                    longitude: pos.lng,
-                    categories: this.categoryPreferenceManager.toYelpAPICategoriesQuery,
+                    latitude: this.lat,
+                    longitude: this.lng,
+                    categories: "restaurants",
+                    distance: 40000,
                     sort_by: "distance",
                     limit: 50
+                }).then((results) => {
+                    /**
+                     * @type { Restaurant[] }
+                     */
+                    this.restaurants = results.jsonBody.businesses;
+
+                    // Converts the data in Restaurant objects
+                    for (let i = 0; i < this.restaurants.length; ++i) {
+                        this.restaurants[i] = new Restaurant(this.restaurants[i]);
+                    }
+
+                    this.numAPICalls++;
+
+                    res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
+                }).catch((err) => {
+                    console.log(err);
+                    res.json({ status: ServerStatus.YELP_API_REQUEST_ERROR });
                 })
-            }
-        } else {
-            res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
+                break;
+
+            case SuggestionAction.MAKE_SECOND_API_CALL:
+
+                // If all API calls fail then make final suggestion
+                this.suggestionAction = SuggestionAction.MAKE_FINAL_SUGGESTION;
+
+                this.madeSecondAPICall = true;
+
+                let max = this.distancePreferenceManager.getLargestDistance();
+
+                // If the user was fine with the largest distance shown, then gets restaurants beyond that distance
+                if (max.pref !== Preference.BAD) {
+                    for (let i = 0, ang = 0; i < 6; ++i, ang += Math.PI * 2 / (TOTAL_API_CALLS - 1)) {
+                        let pos = LatLng.move(this.lat, this.lng, max.value * 2, ang);
+                        console.log(pos);
+                        yelpClient.search({
+                            latitude: pos.lat,
+                            longitude: pos.lng,
+                            categories: this.categoryPreferenceManager.toYelpAPICategoriesQuery(),
+                            sort_by: "distance",
+                            limit: 50
+                        }).then((results) => {
+
+                            this.numAPICalls++;
+
+                            // Got new restaurants to make new suggestions with
+                            if (results.jsonBody.businesses.length > 0) {
+                                this.suggestionAction = SuggestionAction.MAKE_SUGGESTION;
+                            }
+
+                            // Goes through each new restaurant
+                            for (let i = 0; i < results.jsonBody.businesses.length; ++i) {
+                                let add = true;
+
+                                // If it isn't already in the list then it adds the restaurant
+                                for (let j = 0; j < this.restaurants.length; ++j) {
+                                    if (this.restaurants[j].equals(results.jsonBody.businesses[i])) {
+                                        add = false;
+                                        break;
+                                    }
+                                }
+
+                                for (let j = 0; j < this.alreadyShown.length; ++j) {
+                                    if (!add || this.alreadyShown[j].equals(results.jsonBody.businesses[i])) {
+                                        add = false;
+                                        break;
+                                    }
+                                }
+
+                                if (add) {
+                                    // Must recalculate distances because they aren't relative to the user's location
+                                    results.jsonBody.businesses[i].distance = LatLng.distance(this.lat, this.lng, results.jsonBody.businesses[i].coordinates.latitude, results.jsonBody.businesses[i].coordinates.longitude);
+                                    this.restaurants.push(new Restaurant(results.jsonBody.businesses[i]));
+                                }
+                            }
+
+                            // If this is the last API call to be made
+                            if (this.numAPICalls == TOTAL_API_CALLS) {
+
+                                // If got more restaurants
+                                if (this.suggestionAction == SuggestionAction.MAKE_SUGGESTION) {
+
+                                    // Ranks the restaurants
+                                    this.rankRestaurants();
+
+                                    this.capture();
+
+                                    // Then returns the highest rating one
+                                    res.json({ status: ServerStatus.OK, suggestion: this.restaurants[0], isSecondRound: true });
+                                }
+                                // If there are no new restaurants to show
+                                else if (this.suggestionAction == SuggestionAction.MAKE_FINAL_SUGGESTION) {
+                                    // TODO: Make final suggestion
+                                }
+                                // If something went wrong
+                                else {
+                                    res.json({ status: ServerStatus.YELP_API_REQUEST_ERROR });
+                                }
+                            }
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                            this.numAPICalls++;
+
+                            if (this.numAPICalls == TOTAL_API_CALLS) {
+                                // If got more restaurants
+                                if (this.suggestionAction == SuggestionAction.MAKE_SUGGESTION) {
+
+                                    // Ranks the restaurants
+                                    this.rankRestaurants();
+
+                                    this.capture();
+
+                                    // Then returns the highest rating one
+                                    res.json({ status: ServerStatus.OK, suggestion: this.restaurants[0], isSecondRound: true });
+                                }
+                                // If there are no new restaurants to show
+                                else if (this.suggestionAction == SuggestionAction.MAKE_FINAL_SUGGESTION) {
+                                    // TODO: Make final suggestion
+                                }
+                                // If something went wrong
+                                else {
+                                    res.json({ status: ServerStatus.YELP_API_REQUEST_ERROR });
+                                }
+                            }
+                        })
+                    }
+                }    
+
+                break;
+
+            case SuggestionAction.MAKE_SUGGESTION:
+                res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
+                break;
+
+            case SuggestionAction.MAKE_FINAL_SUGGESTION:
+                res.json({ suggestion: makeFinalSuggestion(), status: ServerStatus.FINAL_SUGGESTION });
+                break;
         }
-        // else if (this.numSuggestions < 4) {
-        //     this.shuffle(this.restaurants);
-        //     res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
-        // }
-        // //If less than 10 suggestions have been made
-        // else if (this.numSuggestions < 100) {
-        //     res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
-        // }
-        // //TODO: 2nd yelp query
+    }
+
+    makeFinalSuggestion() {
+        for (let i = 0; i < this.restaurants.length; ++i) {
+            this.restaurants[i].preferenceRating = 1 * FinalWeights.ALREADY_SHOWN +
+                this.categoryPreferenceManager.rateAll(this.restaurants[i].categories) * FinalWeights.CATEGORIES +
+                this.pricePreferenceManager.rate(this.restaurants[i].price) * FinalWeights.PRICE + 
+                this.distancePreferenceManager.rate(this.restaurants[i].distance) * FinalWeights.DISTANCE +
+                ((this.restaurants[i].rating - 1) / 2 - 1) * FinalWeights.RATING;
+        }
+        
+        for (let i = 0; i < this.alreadyShown.length; ++i) {
+            this.alreadyShown[i].preferenceRating = 0 * FinalWeights.ALREADY_SHOWN +
+                this.categoryPreferenceManager.rateAll(this.restaurants[i].categories) * FinalWeights.CATEGORIES +
+                this.pricePreferenceManager.rate(this.restaurants[i].price) * FinalWeights.PRICE + 
+                this.distancePreferenceManager.rate(this.restaurants[i].distance) * FinalWeights.DISTANCE +
+                ((this.restaurants[i].rating - 1) / 2 - 1) * FinalWeights.RATING;
+            this.restaurants.push(this.alreadyShown[i]);
+        }
+
+        this.sort();
+
+        return this.restaurants[0];
     }
 
     shuffle(a) {
-    for (let i = a.length; i; i--) {
-        let j = Math.floor(Math.random() * i);
-        [a[i - 1], a[j]] = [a[j], a[i - 1]];
+        for (let i = a.length; i; i--) {
+            let j = Math.floor(Math.random() * i);
+            [a[i - 1], a[j]] = [a[j], a[i - 1]];
+        }
     }
-}
 
     deactivate() {
         //TODO: Convert to inactive suggestion

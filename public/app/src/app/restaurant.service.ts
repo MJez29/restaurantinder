@@ -28,6 +28,8 @@ export class RestaurantService {
 	private lat: number;
 	private lng: number;
 
+	private round2: boolean;
+
 	constructor(private http: Http, private router: Router) { 
 		this.cur = new Restaurant({});
 	}
@@ -188,10 +190,15 @@ export class RestaurantService {
 					console.log(JSON.stringify(data, null, 4));
 					this.cur = new Restaurant(data.suggestion);
 					success(this.cur);
+					this.round2 = data.round2;
 				} else {
 					error(data.status);
 				}
 			}, error);
+	}
+
+	public isSecondRound() {
+		return this.round2;
 	}
 
 	//private sendFeedback(fb: feedback): Observable<

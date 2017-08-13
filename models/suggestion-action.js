@@ -1,0 +1,6 @@
+module.exports = {
+    MAKE_FIRST_API_CALL: 0,
+    MAKE_SECOND_API_CALL: 1,
+    MAKE_FINAL_SUGGESTION: 2,
+    MAKE_SUGGESTION: 3
+}

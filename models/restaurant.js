@@ -112,4 +112,16 @@ module.exports = class Restaurant {
          */
         this.transactions = data.transactions;
     }
+
+    /**
+     * 
+     * Returns whether 2 restaurant objects are equivalent
+     * 
+     * 2 restaurants are equivalent iff they have the same Yelp business ID
+     * 
+     * @param { { id: string } } r 
+     */
+    equals(r) {
+        return this.id === r.id;
+    }
 }

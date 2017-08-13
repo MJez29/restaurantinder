@@ -5,7 +5,7 @@
  * 
  * MAKE SURE TO UPDATE BOTH /models/server-status.js (this) and /public/app/src/server-status.ts
  * Version number is equal to the number of statuses
- * @version 5
+ * @version 6
  * 
  */
 module.exports = {
@@ -60,5 +60,15 @@ module.exports = {
      * 
      */
     GOOGLE_MAPS_GEOCODING_API_ERROR: "GOOGLE_MAPS_GEOCODING_API_ERROR",
+
+    /**
+     * 
+     * This suggestion is the final one that the app will provide. The user cannot provide preferences
+     * to alter this suggestion.
+     * 
+     * @const
+     * @type { string }
+     */
+    FINAL_SUGGESTION: "FINAL_SUGGESTION",
 
 }

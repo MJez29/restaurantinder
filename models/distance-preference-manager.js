@@ -125,4 +125,14 @@ module.exports = class DistancePreferenceManager extends InfiniteValuePreference
 
     }
 
+    /**
+     * 
+     * Returns the furthest distance and the user's preference to it
+     * 
+     * @return { { value: number, pref: string } }
+     */
+    getLargestDistance() {
+        return this.preferences[this.preferences.length - 1];
+    }
+
 }
