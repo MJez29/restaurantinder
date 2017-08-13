@@ -26,6 +26,14 @@
     box-sizing: border-box;
 }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
 /*
 
 Styles pertaining to the nav bar at the top

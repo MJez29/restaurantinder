@@ -1,3 +1,62 @@
+@media screen and (min-width: 48em) {
+    .content {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+#restaurant-img {
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 0 10px black;
+}
+
+.category {
+    margin: 50px 0;
+}
+
+h2.category-title {
+    font-size: 2em;
+    text-align: center;
+    margin: 0;
+}
+
+img.category-title {
+    height: 4em;
+}
+
+.category-line {
+    width: 50%;
+    height: 1px;
+    background-color: #000;
+    padding: 0;
+    border: none;
+}
+
+.category-content {
+    font-size: 1.2em;
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.centered, img.category-title {
+    margin: 0 auto;
+    text-align: center;
+}
+
 agm-map {
     height: 300px;
+}
+
+button {
+    color: #FFF;
+}
+
+button.left {
+    background-color: #F15B00;
+}
+
+button.right {
+    background-color: #F9A602;
 }

@@ -10,10 +10,11 @@ import { Router } from "@angular/router";
 })
 export class MoreInfoComponent implements OnInit {
 
-	loading: boolean;
-	restaurant: Restaurant;
-	lat: number;
-	lng: number;
+	public loading: boolean;
+	public restaurant: Restaurant;
+	public lat: number;
+	public lng: number;
+	public isFinalSuggestion: boolean;
 
 	constructor(private restaurantService: RestaurantService, private router: Router) { 
 		this.loading = true;
@@ -25,6 +26,9 @@ export class MoreInfoComponent implements OnInit {
 		this.lng = this.restaurantService.getLng();
 		console.log(`${this.lat}, ${this.lng}`);
 		this.loading = false;
+
+		// TODO: Implement this
+		// this.isFinalSuggestion = this.restaurantService.isFinalSuggestion();
 	}
 
 }

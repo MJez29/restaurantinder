@@ -197,6 +197,10 @@ export class RestaurantService {
 			}, error);
 	}
 
+	public getReviewCount() {
+		return this.cur.getReviewCount();
+	}
+
 	public isSecondRound() {
 		return this.round2;
 	}

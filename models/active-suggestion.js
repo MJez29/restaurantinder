@@ -460,7 +460,7 @@ module.exports = class {
                 break;
 
             case SuggestionAction.MAKE_FINAL_SUGGESTION:
-                res.json({ suggestion: makeFinalSuggestion(), status: ServerStatus.FINAL_SUGGESTION });
+                res.json({ suggestion: this.makeFinalSuggestion(), status: ServerStatus.FINAL_SUGGESTION });
                 break;
         }
     }

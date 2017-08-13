@@ -114,4 +114,20 @@ export class Restaurant {
 	public getNumCategories() {
 		return this.categories.length;
 	}
+
+	public getReviewCount() {
+		return this.review_count;
+	}
+
+	public getDisplayAddress() {
+		return this.location.display_address;
+	}
+
+	public getDisplayPhoneNumber() {
+		return this.display_phone;
+	}
+
+	public getURL() {
+		return this.url;
+	}
 }

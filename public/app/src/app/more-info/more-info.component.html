@@ -2,18 +2,69 @@
 	<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
 	<span class="sr-only">Loading...</span>
 </div>
-<div *ngIf="!loading">
-	<h1>{{restaurant.getName()}}</h1>
-	<img [src]="restaurant.getImageUrl()" alt="An image of the restaurant">
-	<img src="/img/{{restaurant.getRating()}}.png" alt="">
-	<agm-map [latitude]="(lat + restaurant.getLat()) / 2" [longitude]="(lng + restaurant.getLng()) / 2" [zoom]="12">
-		<agm-marker [latitude]="lat" [longitude]="lng" title="You are here" label="A" [zIndex]="2">
+<div *ngIf="!loading" class="pure-g">
+	<div class="pure-u-0 pure-u-md-1-4 pure-u-xl-1-3"></div>
+	<div class="pure-u-1 pure-u-md-1-2 pure-u-xl-1-3">
+		<div class="content">
+			<div *ngIf="!isFinalSuggestion">
+				<p>You've spent enough time looking at restaurants already, this is your best bet:</p>
+				<hr>
+			</div>
+			<h1>{{restaurant.getName()}}</h1>
+			<img [src]="restaurant.getImageUrl()" alt="An image of the restaurant" id="restaurant-img" class="pure-img">
+			<div class="category">
+				<h2 class="category-title">Rating</h2>
+				<hr class="category-line">
+				<img src="/assets/yelp/{{restaurant.getRating()}}.png" alt="" class="pure-img centered">
+				<p class="centered">Based on {{ restaurant.getReviewCount() }} reviews</p>
+			</div>
+			<div class="category">
+				<h2 class="category-title">Price</h2>
+				<hr class="category-line">
+				<p class="centered category-content">{{ restaurant.getPrice().value }}</p>
+			</div>
+			<div class="category">
+				<h2 class="category-title">Address</h2>
+				<hr class="category-line">
+				<p class="centered category-content" *ngFor="let line of restaurant.getDisplayAddress()">{{ line }}</p>
+				<br>
+				<agm-map [latitude]="(lat + restaurant.getLat()) / 2" [longitude]="(lng + restaurant.getLng()) / 2" [zoom]="12">
+					<agm-marker [latitude]="lat" [longitude]="lng" title="You are here" label="A" [zIndex]="2"></agm-marker>
+					<agm-marker [latitude]="restaurant.getLat()" [longitude]="restaurant.getLng()" [title]="restaurant.getName()" label="B" z-index="1"></agm-marker>
+				</agm-map>
+			</div>
+			<div class="category">
+				<h2 class="category-title">Distance</h2>
+				<hr class="category-line">
+				<p class="centered category-content">{{ restaurant.getDistance().value / 1000 | round: 1 }} km</p>
+			</div>
 
-		</agm-marker>
-		<agm-marker [latitude]="restaurant.getLat()" [longitude]="restaurant.getLng()" [title]="restaurant.getName()" label="B" z-index="1">
+			<div class="category">
+				<h2 class="category-title">Phone Number</h2>
+				<hr class="category-line">
+				<a href="tel:{{restaurant.getPhoneNumber()}}" class="category-content centered">{{ restaurant.getDisplayPhoneNumber() }}</a>
+			</div>
 
-		</agm-marker>
-	</agm-map>
-	<a *ngIf="restaurant.canMakeReservation()" href="tel:{{restaurant.getPhoneNumber()}}"></a>
+			<div class="category">
+				<img src="/assets/yelp/burst.png" alt="The Yelp burst icon" class="centered category-title pure-img">
+				<hr class="category-line">
+				<p class="centered category-content">Read more on <a [href]="restaurant.getURL()">Yelp</a></p>
+			</div>
+
+			<div class="category pure-g">
+				<div class="pure-u-1-2">
+					<button *ngIf="!isFinalSuggestion" routerLink="/go/suggest" skipLocationChange class="pure-button left">
+						<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> &nbsp; Back
+					</button>
+				</div>
+				<div class="pure-u-1-2 right">
+					<button routerLink="/" class="pure-button right">
+						<i class="fa fa-cutlery" aria-hidden="true"></i> &nbsp; Let's go
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pure-u-0 pure-u-md-1-4 pure-u-xl-1-3"></div>
 </div>
 <a routerLink="/go/suggest" skipLocationChange>Back</a>
