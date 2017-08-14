@@ -5,7 +5,7 @@
  * 
  * MAKE SURE TO UPDATE BOTH /models/server-status.js (this) and /public/app/src/server-status.ts
  * Version number is equal to the number of statuses
- * @version 6
+ * @version 7
  * 
  */
 module.exports = {
@@ -63,12 +63,23 @@ module.exports = {
 
     /**
      * 
+     * This suggestion is a suggestion that the user can give preferences towards.
+     * 
+     * @const
+     * @type { string }
+     * 
+     */
+    ACTIVE_SUGGESTION: "ACTIVE_SUGGESTION",
+    
+    /**
+     * 
      * This suggestion is the final one that the app will provide. The user cannot provide preferences
      * to alter this suggestion.
      * 
      * @const
      * @type { string }
+     * 
      */
-    FINAL_SUGGESTION: "FINAL_SUGGESTION",
+    INACTIVE_SUGGESTION: "INACTIVE_SUGGESTION"
 
 }

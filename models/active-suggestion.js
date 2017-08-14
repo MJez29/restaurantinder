@@ -72,10 +72,10 @@ const DISTANCE_WEIGHT = 0.2;
 
 const FinalWeights = {
     ALREADY_SHOWN: 0.05,
-    CATEGORIES: 0.55,
-    PRICE: 0.1,
-    DISTANCE: 0.1,
-    RATING: 0.2
+    CATEGORIES: 0.2,
+    PRICE: 0.17,
+    DISTANCE: 0.18,
+    RATING: 0.4
 }
 
 //The amount of time that a suggestion is active for in ms
@@ -338,7 +338,7 @@ module.exports = class {
 
                     this.numAPICalls++;
 
-                    res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
+                    res.json({ suggestion: this.restaurants[0], status: ServerStatus.ACTIVE_SUGGESTION });
                 }).catch((err) => {
                     console.log(err);
                     res.json({ status: ServerStatus.YELP_API_REQUEST_ERROR });
@@ -412,7 +412,7 @@ module.exports = class {
                                     this.capture();
 
                                     // Then returns the highest rating one
-                                    res.json({ status: ServerStatus.OK, suggestion: this.restaurants[0], isSecondRound: true });
+                                    res.json({ status: ServerStatus.ACTIVE_SUGGESTION, suggestion: this.restaurants[0], isSecondRound: true });
                                 }
                                 // If there are no new restaurants to show
                                 else if (this.suggestionAction == SuggestionAction.MAKE_FINAL_SUGGESTION) {
@@ -438,7 +438,7 @@ module.exports = class {
                                     this.capture();
 
                                     // Then returns the highest rating one
-                                    res.json({ status: ServerStatus.OK, suggestion: this.restaurants[0], isSecondRound: true });
+                                    res.json({ status: ServerStatus.ACTIVE_SUGGESTION, suggestion: this.restaurants[0], isSecondRound: true });
                                 }
                                 // If there are no new restaurants to show
                                 else if (this.suggestionAction == SuggestionAction.MAKE_FINAL_SUGGESTION) {
@@ -456,11 +456,11 @@ module.exports = class {
                 break;
 
             case SuggestionAction.MAKE_SUGGESTION:
-                res.json({ suggestion: this.restaurants[0], status: ServerStatus.OK });
+                res.json({ suggestion: this.restaurants[0], status: ServerStatus.ACTIVE_SUGGESTION });
                 break;
 
             case SuggestionAction.MAKE_FINAL_SUGGESTION:
-                res.json({ suggestion: this.makeFinalSuggestion(), status: ServerStatus.FINAL_SUGGESTION });
+                res.json({ suggestion: this.makeFinalSuggestion(), status: ServerStatus.INACTIVE_SUGGESTION });
                 break;
         }
     }

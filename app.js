@@ -87,7 +87,7 @@ app.get("/go/:key", (req, res, next) => {
 
 app.post("/go/:key", (req, res, next) => {
     if (se.addPreferences(req.params.key, req.body)) {
-        res.json({ status: "OK" });
+        res.json({ status: ServerStatus.OK });
     } else {
         res.json({ status: ServerStatus.INVALID_ACTIVE_KEY });
     }

@@ -28,7 +28,7 @@ export class RestaurantService {
 	private lat: number;
 	private lng: number;
 
-	private round2: boolean;
+	private finalSuggestion: boolean;
 
 	constructor(private http: Http, private router: Router) { 
 		this.cur = new Restaurant({});
@@ -186,11 +186,15 @@ export class RestaurantService {
 		this.http.get(GET_RESTAURANT_URL + this.key)
 			.map(this.extractData)
 			.subscribe((data) => {
-				if (data.status === ServerStatus.OK) {
+				if (data.status === ServerStatus.ACTIVE_SUGGESTION) {
 					console.log(JSON.stringify(data, null, 4));
 					this.cur = new Restaurant(data.suggestion);
 					success(this.cur);
-					this.round2 = data.round2;
+				} else if (data.status === ServerStatus.INACTIVE_SUGGESTION) {
+					this.finalSuggestion = true;
+					console.log(JSON.stringify(data, null, 4));
+					this.cur = new Restaurant(data.suggestion);
+					this.router.navigateByUrl("/go/more-info", { skipLocationChange: true });
 				} else {
 					error(data.status);
 				}
@@ -201,8 +205,8 @@ export class RestaurantService {
 		return this.cur.getReviewCount();
 	}
 
-	public isSecondRound() {
-		return this.round2;
+	public isFinalSuggestion() {
+		return this.finalSuggestion;
 	}
 
 	//private sendFeedback(fb: feedback): Observable<

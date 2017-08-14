@@ -27,8 +27,7 @@ export class MoreInfoComponent implements OnInit {
 		console.log(`${this.lat}, ${this.lng}`);
 		this.loading = false;
 
-		// TODO: Implement this
-		// this.isFinalSuggestion = this.restaurantService.isFinalSuggestion();
+		this.isFinalSuggestion = this.restaurantService.isFinalSuggestion();
 	}
 
 }

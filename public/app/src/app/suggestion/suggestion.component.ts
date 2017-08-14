@@ -68,6 +68,26 @@ export class SuggestionComponent implements OnInit {
 	moreInfo() {
 		clearTimeout(this.timer);
 		this.router.navigateByUrl("/go/more-info", { skipLocationChange: true });
+
+		this.restaurantService.sendPreferences({
+			price: this.price,
+			distance: this.distance,
+			categories: (() => {
+				//Creates an array of the category preferences
+
+				let arr: { value: string, pref: string }[] = [];
+				for (let i = 0; i < this.categories.length; i++) {
+					arr.push({
+						value: this.categories[i].alias,
+						pref: this.categories[i].pref
+					});
+				}
+
+				return arr;
+			}) ()
+		}, () => {
+			this.router.navigateByUrl("/go/more-info", { skipLocationChange: true });
+		})
 	}
 
 	//Registers a button click for the shown price
