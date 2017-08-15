@@ -4,13 +4,12 @@
   "description": "Makes finding a new restaurant a little easier",
   "main": "app.js",
   "scripts": {
-    "ng": "ng",
     "test": "node app.js",
     "start": "node app.js",
-    "build": "cd public/app && npm install && ng build --prod && cd .. && cd ..",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "cd public/app && npm install && ng build --prod && cd .. && cd .."
+    "preinstall": "cd public/app && npm install && cd .. && cd ..",
+    "postinstall": "cd public/app && ng build --prod && cd .. && cd .."
   },
   "keywords": [
     "Food"
