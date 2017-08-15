@@ -42,6 +42,18 @@ yelp.accessToken(yelpID, yelpSecret).then((res) => {
     console.log(err);
 });
 */
+
+// Redirects all non-https requests to https when in production
+let forceSSL = (req, res, next) => {
+    if (process.env.NODE_ENV === "production" && req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect(path.join("https://", req.get("Host"), req.url));
+    } else {
+        next();
+    }
+}
+
+ap.use(forceSSL);
+
 app.get("/", (req, res, next) => {
     res.sendFile(path.join(__dirname, "public", "app", "dist", "index.html"));
 })

@@ -409,7 +409,7 @@ module.exports = class {
                                     // Ranks the restaurants
                                     this.rankRestaurants();
 
-                                    this.capture();
+                                    //this.capture();
 
                                     // Then returns the highest rating one
                                     res.json({ status: ServerStatus.ACTIVE_SUGGESTION, suggestion: this.restaurants[0], isSecondRound: true });
@@ -435,7 +435,7 @@ module.exports = class {
                                     // Ranks the restaurants
                                     this.rankRestaurants();
 
-                                    this.capture();
+                                    //this.capture();
 
                                     // Then returns the highest rating one
                                     res.json({ status: ServerStatus.ACTIVE_SUGGESTION, suggestion: this.restaurants[0], isSecondRound: true });
