@@ -8,7 +8,7 @@
     "start": "node app.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "cd public/app && ng build --prod && cd .. && cd .."
+    "postinstall": "cd public/app && npm install && ng build --prod && cd .. && cd .."
   },
   "keywords": [
     "Food"
