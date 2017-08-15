@@ -52,7 +52,7 @@ let forceSSL = (req, res, next) => {
     }
 }
 
-ap.use(forceSSL);
+app.use(forceSSL);
 
 app.get("/", (req, res, next) => {
     res.sendFile(path.join(__dirname, "public", "app", "dist", "index.html"));
