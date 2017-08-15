@@ -8,6 +8,7 @@
     "start": "node app.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "preinstall": "cd public/app && npm install -g @angular/cli@latest && cd .. && cd ..",
     "postinstall": "cd public/app && npm install && ng build --prod && cd .. && cd .."
   },
   "keywords": [
