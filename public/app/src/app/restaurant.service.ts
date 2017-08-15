@@ -4,6 +4,7 @@ import { Preferences } from "./preferences";
 import { Router } from "@angular/router";
 import { Http, Response, Headers, RequestOptions, URLSearchParams, QueryEncoder } from "@angular/http";
 import { ServerStatus } from "./server-status";
+import { environment } from "../environments/environment";
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -102,7 +103,7 @@ export class RestaurantService {
 		urlParams.append("addr3", addr3);
 		reqOpts.params = urlParams;
 		console.log(reqOpts);
-		this.http.get(GET_GEOCODE_URL, reqOpts)
+		this.http.get(`${ environment.baseUrl }/geocode`, reqOpts)
 			.map(this.extractData)
 			.subscribe((data) => {
 				if (data.status === ServerStatus.OK) {
@@ -122,7 +123,7 @@ export class RestaurantService {
 	// In return, receives an access key from the server
 	public postLocation(success: () => void, error: (err) => void) {
 		console.log(`LAT: ${this.lat}, LNG: ${this.lng}`);
-		this.http.post(POST_LOCATION_URL, { lat: this.lat, lng: this.lng })
+		this.http.post(`${environment.baseUrl}/go`, { lat: this.lat, lng: this.lng })
 			.map(this.extractData)
 			.subscribe((data) => {
 				console.log("DATA FROM GET REQUEST:\n" + JSON.stringify(data, null, 4));
@@ -165,7 +166,7 @@ export class RestaurantService {
 			pref: string			//"GOOD", "BAD", "NEUTRAL"
 		}[]
 	}, success: () => void) {
-		this.http.post(POST_FEEDBACK_URL + this.key, prefs)
+		this.http.post(`${ environment.baseUrl }/go/${ this.key }`, prefs)
 			.map(this.extractData)
 			.subscribe((data) => {
 				if (data.status === ServerStatus.OK) {
@@ -183,7 +184,7 @@ export class RestaurantService {
 	}
 
 	getNewRestaurant(success: (restaurant: Restaurant) => void, error: (any) => void): void {
-		this.http.get(GET_RESTAURANT_URL + this.key)
+		this.http.get(`${ environment.baseUrl }/go/${ this.key }`)
 			.map(this.extractData)
 			.subscribe((data) => {
 				if (data.status === ServerStatus.ACTIVE_SUGGESTION) {
