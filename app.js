@@ -105,6 +105,12 @@ app.post("/go/:key", (req, res, next) => {
     }
 })
 
+app.delete("/go/:key", (req, res, next) => {
+    console.log("YOU WANT TO DELETE: " + key);
+
+    res.json({ status: ServerStatus.OK });
+})
+
 // Converts an address into latitude/longitude
 // GET /geocode?addr1=ADDR_1&addr2=ADDR_2&addr3=ADDR_3
 app.get("/geocode", (req, res, next) => {
