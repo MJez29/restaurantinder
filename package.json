@@ -9,7 +9,7 @@
     "build": "cd public/app && npm install && ng build --prod && cd .. && cd ..",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "cd public/app && && npm install && ng build --prod && cd .. && cd .."
+    "postinstall": "cd public/app && npm install && ng build --prod && cd .. && cd .."
   },
   "keywords": [
     "Food"
