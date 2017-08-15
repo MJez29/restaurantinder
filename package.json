@@ -4,6 +4,7 @@
   "description": "Makes finding a new restaurant a little easier",
   "main": "app.js",
   "scripts": {
+    "ng": "ng",
     "test": "node app.js",
     "start": "node app.js",
     "build": "cd public/app && npm install && ng build --prod && cd .. && cd ..",
@@ -23,5 +24,8 @@
     "express-handlebars": "^3.0.0",
     "request": "^2.81.0",
     "yelp-fusion": "^1.0.3"
+  },
+  "engines": {
+    "node": "6.11.2"
   }
 }
