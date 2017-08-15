@@ -6,10 +6,10 @@
   "scripts": {
     "test": "node app.js",
     "start": "node app.js",
-    "build": "ng build --prod",
+    "build": "cd public/app && ng build --prod && cd .. && cd ..",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "postinstall": "cd public/app && ng build --prod && cd .. && cd .."
   },
   "keywords": [
     "Food"
