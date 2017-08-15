@@ -2,7 +2,7 @@
 	<h1>Where Do You Want To Search?</h1>
 	<h2>Clicking one of these buttons brings you one step closer to food :)</h2>
 	<form class="pure-form pure-form-stacked">
-		<button *ngIf="!geolocationError" (click)="getGeolocation();" class="pure-button pure-button-primary" type="button">
+		<button *ngIf="!geolocationErr" (click)="getGeolocation();" class="pure-button pure-button-primary" type="button">
 			<i class="fa fa-compass" aria-hidden="true"></i> &nbsp; Use my location
 		</button>
 		<p *ngIf="geolocationErr">
