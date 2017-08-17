@@ -10,6 +10,8 @@ let activeSuggestions = new Map();
 //Value: An InactiveSuggestion object
 let inactiveSuggestions = new Map();
 
+const SUGGESTION_DURATION = 1000 * 60 * 10;
+
 //Generates a random integer
 function randint() {
   return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
@@ -32,7 +34,16 @@ module.exports.createSuggestion = (lat, lng) => {
     //Adds a new suggestion to the list of active suggestions
     activeSuggestions.set(key, actSugg);
 
+    // After 10 minutes the suggestion gets deleted
+    setTimeout((key) => {
+        activeSuggestions.delete(key);
+    }, SUGGESTION_DURATION, key);
+
     return key;
+}
+
+module.exports.getNumActiveSuggestions = () => {
+    return activeSuggestions.size;
 }
 
 //Returns a suggestion, can be active or inactive or undefined if doesn't exist

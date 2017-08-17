@@ -58,6 +58,10 @@ app.get("/", (req, res, next) => {
     res.sendFile(path.join(__dirname, "public", "app", "dist", "index.html"));
 })
 
+app.get("/length", (req, res, next) => {
+    res.json({ length: se.getNumActiveSuggestions() });
+})
+
 app.get("/go", (req, res, next) => {
     res.sendFile(path.join(__dirname, "public", "app", "dist", "index.html"));
 })

@@ -230,16 +230,27 @@ module.exports = class {
         // if (this.timesRanked == 0)
         //     this.capture();
 
-        for (let i = 0; i < this.restaurants.length; ++i) {
-            let priceRating = this.restaurants[i].pricePreferenceRating = this.pricePreferenceManager.rate(this.restaurants[i].price);
-            let distanceRating = this.restaurants[i].distancePreferenceRating = this.distancePreferenceManager.rate(this.restaurants[i].distance);
-            let categoryRating = this.restaurants[i].categoryPreferenceRating = this.categoryPreferenceManager.rateAll(this.restaurants[i].categories);
+        if (this.restaurants.length > 0) {
 
-            // Overall rating is the average of the 3 individual ratings
-            this.restaurants[i].preferenceRating = Math.clamp(priceRating * PRICE_WEIGHT + distanceRating * DISTANCE_WEIGHT + categoryRating * CATEGORY_WEIGHT + (Math.random() - 0.5) * skew, -1, 1);
+            for (let i = 0; i < this.restaurants.length; ++i) {
+                let priceRating = this.restaurants[i].pricePreferenceRating = this.pricePreferenceManager.rate(this.restaurants[i].price);
+                let distanceRating = this.restaurants[i].distancePreferenceRating = this.distancePreferenceManager.rate(this.restaurants[i].distance);
+                let categoryRating = this.restaurants[i].categoryPreferenceRating = this.categoryPreferenceManager.rateAll(this.restaurants[i].categories);
+
+                // Overall rating is the average of the 3 individual ratings
+                this.restaurants[i].preferenceRating = Math.clamp(priceRating * PRICE_WEIGHT + distanceRating * DISTANCE_WEIGHT + categoryRating * CATEGORY_WEIGHT + (Math.random() - 0.5) * skew, -1, 1);
+            }
+
+            this.sort();
+
+        } else {
+            // If the user hasn't found anything they like in the first batch of restaurants
+            if (!this.madeSecondAPICall) {
+                this.suggestionAction = SuggestionAction.MAKE_SECOND_API_CALL;
+            } else {
+                this.suggestionAction = SuggestionAction.MAKE_FINAL_SUGGESTION;
+            }
         }
-
-        this.sort();
 
         // If found a food type the user likes
         if (this.foundGoodCategory) {
